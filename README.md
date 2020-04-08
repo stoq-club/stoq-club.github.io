@@ -1,24 +1,24 @@
-# Starter Template
+# stoq-website
 
-A website starter template.
+## Project setup
+```
+npm install
+```
 
-## Instructions
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
 
-### Dev dependencies
+### Compiles and minifies for production
+```
+npm run build
+```
 
-* `node`
-* `yarn`
-* `nodemon`
-* `gulp`
+### Lints and fixes files
+```
+npm run lint
+```
 
-### Development server
-
-Before running server for first time run `gulp` to build files.
-
-Start development server with `yarn dev`.
-
-### Deploy
-
-Build the assets by running `gulp`.
-
-## To Do
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
