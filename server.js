@@ -25,7 +25,7 @@ app.use(cors());
 // 		extended: false
 // 	})
 // )
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
 
 app.use(express.static("public"));
 app.use(express.static("build"));
