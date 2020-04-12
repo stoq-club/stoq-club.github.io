@@ -2,6 +2,14 @@
 
 html {
   font-family: 'Futura', serif;
+
+  .light {
+    font-family: 'Futura Light', serif;
+  }
+
+  .strong {
+    font-family: 'Futura Bold', serif;
+  }
 }
 
 body {
@@ -11,4 +19,9 @@ body {
 .btn {
   border-radius: 36px;
   text-transform: initial;
+}
+
+.inset-top {
+  margin-top: -256px;
+  padding-top: 256px;
 }

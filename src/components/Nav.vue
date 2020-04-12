@@ -3,7 +3,7 @@
     .container.nav-wrapper
       a.brand-logo.green-text(href="/") Stoq
 
-      ul.right.hide-on-small
+      ul.right.hide-on-med-and-down
         li
           a.green-text.strong(href="/about") About
         
