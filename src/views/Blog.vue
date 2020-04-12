@@ -13,28 +13,31 @@
       .container
         .row
           .col.s6.m4
-            .card.hoverable
-              .card-image
-                img(src="/images/office.jpg", alt="alt")
-              .card-content
-                span.card-title.green-text Title of post
-                p.light Some small description or exerpt
+            router-link(to="/blog/somepost")
+              .card.hoverable
+                .card-image.waves-effect.waves-light
+                  img(src="/images/office.jpg", alt="alt")
+                .card-content
+                  span.card-title.green-text Title of post
+                  p.light Some small description or exerpt
 
           .col.s6.m4
-            .card.hoverable
-              .card-image
-                img(src="/images/office.jpg", alt="alt")
-              .card-content
-                span.card-title.green-text Title of post
-                p.light Some small description or exerpt
+            router-link(to="/blog/somepost")
+              .card.hoverable
+                .card-image.waves-effect.waves-light
+                  img(src="/images/office.jpg", alt="alt")
+                .card-content
+                  span.card-title.green-text Title of post
+                  p.light Some small description or exerpt
 
           .col.s6.m4
-            .card.hoverable
-              .card-image
-                img(src="/images/office.jpg", alt="alt")
-              .card-content
-                span.card-title.green-text Title of post
-                p.light Some small description or exerpt
+            router-link(to="/blog/somepost")
+              .card.hoverable
+                .card-image.waves-effect.waves-light
+                  img(src="/images/office.jpg", alt="alt")
+                .card-content
+                  span.card-title.green-text Title of post
+                  p.light Some small description or exerpt
 
 </template>
 
