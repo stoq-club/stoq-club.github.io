@@ -1,7 +1,5 @@
 <template lang="pug">
 .home
-  Header
-  main
     Banner
     section.section.margined-top-cozy
       .container
@@ -78,22 +76,19 @@
   
   
   
-  Footer
 
 </template>
 
 <script>
 import M from 'materialize-css'
 
-import Header from '@/components/Header.vue'
 import Nugget from '@/components/Nugget.vue'
 import Banner from '@/components/Banner.vue'
 import Features from '@/components/Features.vue'
-import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'Home',
-  components: { Header, Nugget, Banner, Features, Footer },
+  components: { Nugget, Banner, Features },
   data() {
     return {
       features: [
@@ -154,17 +149,15 @@ export default {
     height: 8px;
     border-radius: 100%;
     background: white;
-
-    }
-    .divider-line{
-      margin-left: auto;
-      margin-right: auto;
-      margin-top: 32px;
-      display: block;
-      width: 2px;
-      height: 32px;
-    }
-  
+  }
+  .divider-line {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 32px;
+    display: block;
+    width: 2px;
+    height: 32px;
+  }
 }
 
 .timeline {
