@@ -2,8 +2,13 @@
   .blog-post
     section.section
       .container.margined-top-comfortable.margined-bottom-comfortable
-        h5.green-text {{ blog.title }}
-        VueMarkdown(:source="blog.body")
+        .row
+          .col.s12.m8.offset-m2
+            .card-panel
+              h3.green-text {{ blog.title }}
+              .center
+                img.post-image(src="http://zerodha.com/varsity/wp-content/uploads/2014/07/Ch1-title1.jpg", alt="alt")
+              VueMarkdown(:source="blog.body")
 </template>
 
 <style lang="scss" scoped>
@@ -13,6 +18,8 @@
 <script>
 import VueMarkdown from 'vue-markdown'
 import Prism from 'prismjs'
+import 'prismjs/components/prism-python.min';  // language
+import 'prismjs/components/prism-go.min';  // language
 
 export default {
   components: {
@@ -21,8 +28,8 @@ export default {
   data() {
     return {
       blog: {
-        title: 'blog title',
-        body: `# h1 Heading 8-)
+        title: 'The Need to Invest',
+        body1: `# h1 Heading 8-)
 <h2> h2 Heading by HTML</h2>
 ## h2 Heading
 ### h3 Heading
@@ -245,7 +252,68 @@ This is HTML abbreviation example.
 
 It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
 
-*[HTML]: Hyper Text Markup Language`
+*[HTML]: Hyper Text Markup Language`,
+
+
+body:`
+
+### 1.1 Why should one Invest?
+
+Before we address the above question, let us understand what would happen if one chooses not to invest. Let us assume you earn Rs.50,000/- per month and you spend Rs.30,000/-towards your cost of living which includes housing, food, transport, shopping, medical, etc. The balance of Rs.20,000/- is your monthly surplus. For the sake of simplicity, let us just ignore the effect of personal income tax in this discussion.
+
+To drive the point across, let us make a few simple assumptions.
+
+1. The employer is kind enough to give you a 10% salary hike every year
+2. The cost of living is likely to go up by 8% year on year
+3. You are 30 years old and plan to retire at 50. This leaves you with 20 more years to earn
+4. You don’t intend to work after you retire
+5. Your expenses are fixed and don’t foresee any other expense
+6. The balance cash of Rs.20,000/- per month is retained in the form of hard cash
+
+
+With the decision to invest the surplus cash, your cash balance has increased significantly. The cash balance has grown to Rs.4.26Crs from Rs.1.7Crs. This is a staggering 2.4x times the regular amount. This translates to you being in a much better situation to deal with your post retirement life.
+
+Now, going back to the initial question of why invest? There are a few compelling reasons for one to invest.
+
+Fight Inflation – By investing one can deal better with the inevitable – growing cost of living – **generally referred to as Inflation**
+
+Create Wealth – By investing one can aim to have a better corpus **by the end of the defined time period**. In the above example, the time period was up to retirement but it can be anything – children’s education, marriage, house purchase, retirement holidays, etc
+
+To meet life’s financial aspiration
+
+
+### 1.2 Where to invest?
+
+Having figured out the reasons to invest, the next obvious question would be – Where would one invest, and what are the returns one could expect by investing.
+
+When it comes to investing one has to choose an asset class that suits the individual’s risk and return temperament.
+
+An asset class is a category of investment with particular risk and return characteristics. The following are some of the popular asset classes.
+
+1. Fixed income instruments
+2. Equity
+3. Real estate
+4. Commodities (precious metals)
+
+
+
+#### Fixed Income Instruments
+
+These are investable instruments with very limited risk to the principle and the return is paid as an interest to the investor based on the particular fixed-income instrument. The interest paid, could be quarterly, semi-annual or annual intervals. At the end of the term of deposit, (also known as maturity period) the capital is returned to the investor.
+
+Typical fixed income investment includes:
+
+1. Fixed deposits offered by banks
+2. Bonds issued by the Government of India
+3. Bonds issued by Government related agencies such as HUDCO, NHAI, etc
+4. Bonds issued by corporate’s
+
+As of June 2014, the typical return from a fixed income instrument varies between 8% and 11%.
+
+
+
+
+`
       }
     }
   },
@@ -254,3 +322,9 @@ It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.post-image {
+  max-width: 100%;
+}
+</style>

@@ -7,7 +7,8 @@ html {
     font-family: 'Futura Light', serif;
   }
 
-  .strong {
+  .strong,
+  strong {
     font-family: 'Futura Bold', serif;
   }
 }
@@ -64,8 +65,18 @@ body {
   box-shadow: 0px 4px 16px -8px rgba(75, 75, 75, 0.75);
 }
 
-.blog-post {  
+.blog-post {
   img {
     max-width: 100% !important;
+  }
+
+  p,
+  li,
+  span {
+    @extend .light;
+  }
+
+  strong {
+    @extend .strong;
   }
 }
