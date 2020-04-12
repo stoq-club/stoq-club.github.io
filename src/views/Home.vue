@@ -1,26 +1,26 @@
 <template lang="pug">
 .home
-    Banner
-    section.section.margined-top-cozy
-      .container
-        Features(:features="features")
-    section.section.green.inset-top
-      .container.margined-top-cozy
-        Nugget(color="white")
-        h5.center.white-text How does Stoq work?
-        p.light.center.white-text With our app, making your first investment is easy. #[br] In just 3 steps you will be able to see your return.
+  Banner
+  section.section.margined-top-cozy
+    .container
+      Features(:features="features")
+  section.section.green.inset-top
+    .container.margined-top-cozy
+      Nugget(color="white")
+      h5.center.white-text How does Stoq work?
+      p.light.center.white-text With our app, making your first investment is easy. #[br] In just 3 steps you will be able to see your return.
 
-        Timeline
+      Timeline
 
-        h5.center.white-text.margined-top-cozy Download Stoq and start investing
+      h5.center.white-text.margined-top-cozy Download Stoq and start investing
 
-        .center.padded-top-comfortable.padded-bottom-cozy
-          .btn.white.green-text Download form Appstore
+      .center.padded-top-comfortable.padded-bottom-cozy
+        .btn.white.green-text Download form Appstore
 
-    section.section.padded-top-cozy
-      .container.margined-top-cozy
-        Nugget(color="green")
-        h5.center What makes Stoq different?
+  section.section.padded-top-cozy
+    .container.margined-top-cozy
+      Nugget(color="green")
+      h5.center What makes Stoq different?
 
 </template>
 
