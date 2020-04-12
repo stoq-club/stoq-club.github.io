@@ -1,0 +1,5 @@
+const exp = require('express')
+const app = exp()
+app.use(exp.static('dist'))
+app.get('*', (req, res) => res.sendFile(__dirname + '/dist/index.html'))
+app.listen(process.env.PORT)
