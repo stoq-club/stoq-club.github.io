@@ -4,18 +4,18 @@
   section.section.margined-top-cozy
     .container
       Features(:features="features")
-  section.section.green.inset-top
+  section.section.inset-top.stoq-green
     .container.margined-top-cozy
-      Nugget(color="white")
-      h5.center.white-text How does Stoq work?
-      p.light.center.white-text With our app, making your first investment is easy. #[br] In just 3 steps you will be able to see your return.
+      Nugget(color="black")
+      h5.center How does Stoq work?
+      p.light.center With our app, making your first investment is easy. #[br] In just 3 steps you will be able to see your return.
 
       Timeline
 
-      h5.center.white-text.margined-top-cozy Download Stoq and start investing
+      h5.center.margined-top-cozy Download Stoq and start investing
 
       .center.padded-top-comfortable.padded-bottom-cozy
-        .btn.white.green-text Download form Appstore
+        .btn.white.black-text Download form Appstore
 
   section.section.padded-top-cozy
     .container.margined-top-cozy
@@ -41,22 +41,20 @@ export default {
         {
           img: '/images/yuna.jpg',
           title: 'Lower minimums',
-          description:
-            'easier ascces to adjnfsd fnjsdfjknsf kjfsnj dajkdjna dadjasdh dasdas',
+          description: 'Easier access to quant hedge fund strategies.',
           offsetTop: false
         },
         {
           img: '/images/yuna.jpg',
-          title: 'Lower minimums',
+          title: 'True diversification',
           description:
-            'easier ascces to adjnfsd fnjsdfjknsf kjfsnj dajkdjna dadjasdh dasdas',
+            'Pick strategies to build portfolios with broad selection of risks.',
           offsetTop: true
         },
         {
           img: '/images/yuna.jpg',
-          title: 'Lower minimums',
-          description:
-            'easier ascces to adjnfsd fnjsdfjknsf kjfsnj dajkdjna dadjasdh dasdas',
+          title: 'We share the risk',
+          description: "Don't pay for strategies that dont meet minmum returns",
           offsetTop: false
         }
       ]
@@ -68,4 +66,5 @@ export default {
 }
 </script>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+</style>
