@@ -36,12 +36,12 @@
 
 <style lang="scss" scoped>
 footer {
-    ul {
-        li {
-            a {
-                line-height: 32px;
-            }
-        }
+  ul {
+    li {
+      a {
+        line-height: 32px;
+      }
     }
+  }
 }
 </style>

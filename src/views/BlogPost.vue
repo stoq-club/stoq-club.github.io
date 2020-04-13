@@ -18,8 +18,8 @@
 <script>
 import VueMarkdown from 'vue-markdown'
 import Prism from 'prismjs'
-import 'prismjs/components/prism-python.min';  // language
-import 'prismjs/components/prism-go.min';  // language
+import 'prismjs/components/prism-python.min' // language
+import 'prismjs/components/prism-go.min' // language
 
 export default {
   components: {
@@ -254,8 +254,7 @@ It converts "HTML", but keep intact partial entries like "xxxHTMLyyy" and so on.
 
 *[HTML]: Hyper Text Markup Language`,
 
-
-body:`
+        body: `
 
 ### 1.1 Why should one Invest?
 
