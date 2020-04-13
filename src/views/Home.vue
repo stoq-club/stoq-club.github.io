@@ -39,20 +39,20 @@ export default {
     return {
       features: [
         {
-          img: '/images/yuna.jpg',
+          img: '/images/flower-svgrepo-com.svg',
           title: 'Lower minimums',
           description: 'Easier access to quant hedge fund strategies.',
           offsetTop: false
         },
         {
-          img: '/images/yuna.jpg',
+          img: '/images/profits-svgrepo-com.svg',
           title: 'True diversification',
           description:
             'Pick strategies to build portfolios with broad selection of risks.',
           offsetTop: true
         },
         {
-          img: '/images/yuna.jpg',
+          img: '/images/stats-svgrepo-com.svg',
           title: 'We share the risk',
           description: "Don't pay for strategies that dont meet minmum returns",
           offsetTop: false
