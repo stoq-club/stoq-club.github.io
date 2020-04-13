@@ -1,5 +1,5 @@
 <template lang="pug">
-    footer.page-footer.green
+    footer.page-footer.stoq-green-flat
         .container
             .row
                 .col.s12.m3
