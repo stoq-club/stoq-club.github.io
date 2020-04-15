@@ -82,15 +82,18 @@ body {
 }
 
 .stoq-green {
-  background-image: linear-gradient(135deg, #81fbb8 10%, #28c76f 100%);
+  background-image: linear-gradient(135deg, #006241 10%, #28c76f 100%);
+  // background-image: linear-gradient(135deg, #81fbb8 10%, #28c76f 100%);
 }
 
 .stoq-green-text {
-  color: #28c76f;
+  color: #006241;
+  // color: #28c76f;
 }
 
 .stoq-green-flat {
-  background: #28c76f;
+  background: #006241;
+  // background: #28c76f;
 }
 
 .shadow-text {
