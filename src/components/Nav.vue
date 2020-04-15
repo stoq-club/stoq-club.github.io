@@ -1,7 +1,7 @@
 <template lang="pug">
   nav.transparent.z-depth-0
     .container.nav-wrapper
-      router-link.brand-logo.stoq-green-text(to="/") Stoq
+      router-link.brand-logo.stoq-green-text(to="/") STOQ
 
       ul.right.hide-on-med-and-down
         li

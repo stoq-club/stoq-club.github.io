@@ -3,7 +3,7 @@
         .container
             .row
                 .col.s12.m3
-                    h3.no-margin Stoq
+                    h3.no-margin STOQ
                 .col.s12.m3
                     h6 Quick Links
                     ul
