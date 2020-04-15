@@ -42,7 +42,7 @@
 			.col.s4.valign-wrapper
 				.full-width.margined-top-cozy
 					.col.s12.m3
-						.round-counter.white 3
+						.round-counter.z-depth-3.white 3
 					.col.s12.m9
 						.card-panel
 							h6 Invest smarter
