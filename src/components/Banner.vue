@@ -8,7 +8,7 @@
             .margined-top-comfortable
                 .input-field
                     input.browser-default(type="text" placeholder="E-mail address")
-                    .btn.btn-flat.stoq-green.white-text.shadow-text Get Started
+                    .btn.btn-flat.stoq-green-flat.white-text.shadow-text Get Started
 </template>
 
 <script>

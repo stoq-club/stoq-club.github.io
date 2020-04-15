@@ -7,7 +7,7 @@
         .margined-top-comfortable
           .input-field
             input.browser-default(type="text" placeholder="Find something...")
-            .btn.btn-flat.green.white-text Search
+            .btn.btn-flat.stoq-green-flat.white-text Search
 
     section.section.margined-top-comfortable.margined-bottom-comfortable
       .container
@@ -18,7 +18,7 @@
                 .card-image.waves-effect.waves-light
                   img(src="/images/office.jpg", alt="alt")
                 .card-content
-                  span.card-title.green-text Title of post
+                  span.card-title.stoq-green-text Title of post
                   p.light Some small description or exerpt
 
           .col.s6.m4
@@ -27,7 +27,7 @@
                 .card-image.waves-effect.waves-light
                   img(src="/images/office.jpg", alt="alt")
                 .card-content
-                  span.card-title.green-text Title of post
+                  span.card-title.stoq-green-text Title of post
                   p.light Some small description or exerpt
 
           .col.s6.m4
@@ -36,7 +36,7 @@
                 .card-image.waves-effect.waves-light
                   img(src="/images/office.jpg", alt="alt")
                 .card-content
-                  span.card-title.green-text Title of post
+                  span.card-title.stoq-green-text Title of post
                   p.light Some small description or exerpt
 
 </template>

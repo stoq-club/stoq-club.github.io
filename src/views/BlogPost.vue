@@ -5,7 +5,7 @@
         .row
           .col.s12.m8.offset-m2
             .card-panel
-              h3.green-text {{ blog.title }}
+              h3.stoq-green-text {{ blog.title }}
               .center
                 img.post-image(src="http://zerodha.com/varsity/wp-content/uploads/2014/07/Ch1-title1.jpg", alt="alt")
               VueMarkdown(:source="blog.body")
