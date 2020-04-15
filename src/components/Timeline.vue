@@ -12,20 +12,20 @@
 							.round-counter.z-depth-3.white 1
 						.col.s12.m9
 							.card-panel
-								h6 Invest smarter
-								p.light.no-margin Take advantage of AI driven strategies and secure your future today
+								h6.center-align Invest smarter
+								p.light.no-margin.center-align Take advantage of AI driven strategies and secure your future today
 
 		.row
 			.col.s4.valign-wrapper
 				.full-width.margined-top-cozy
 					
-						.col.s12.m3.hide-on-med-and-up
+						.col.s12.m3
 							.round-counter.z-depth-3.white 2
 						.col.s12.m9
 							.card-panel
-								h6.right-align Invest smarter
-								p.right-align.light.no-margin Take advantage of AI driven strategies and secure your future today
-						.col.s12.m3.hide-on-small-only
+								h6.center-align Invest smarter
+								p.center-align.light.no-margin Take advantage of AI driven strategies and secure your future today
+						//- .col.s12.m3.hide-on-small-only
 							.round-counter.z-depth-3.white 2
 			.col.s4
 				.vertical-line.white
@@ -45,8 +45,8 @@
 						.round-counter.z-depth-3.white 3
 					.col.s12.m9
 						.card-panel
-							h6 Invest smarter
-							p.light.no-margin Take advantage of AI driven strategies and secure your future today
+							h6.center-align Invest smarter
+							p.light.no-margin.center-align Take advantage of AI driven strategies and secure your future today
 
 
 </template>
