@@ -3,7 +3,7 @@
         .full-width.center
           img.hero-image(src="/images/banner.png")
         .container.center.margined-top-comfortable.margined-bottom-comfortable
-            Nugget(color="green")
+            Nugget(color="stoq-green-flat")
             h5.center Build your own portfolio of smart data-driven strategies.
             .margined-top-comfortable
                 .input-field

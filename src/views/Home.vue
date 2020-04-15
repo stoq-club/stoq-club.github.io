@@ -4,22 +4,22 @@
   section.section.margined-top-cozy
     .container
       Features(:features="features")
-  section.section.inset-top.stoq-green
+  section.section.inset-top.stoq-green-flat
     .container.margined-top-cozy
-      Nugget(color="black")
-      h5.center How does Stoq work?
-      p.light.center With our app, making your first investment is easy. #[br] In just 3 steps you will be able to see your return.
+      Nugget(color="white")
+      h5.center.white-text How does Stoq work?
+      p.light.center.white-text With our app, making your first investment is easy. #[br] In just 3 steps you will be able to see your return.
 
       Timeline
 
-      h5.center.margined-top-cozy Download Stoq and start investing
+      h5.center.margined-top-cozy.white-text Download Stoq and start investing
 
       .center.padded-top-comfortable.padded-bottom-cozy
-        .btn.white.black-text Download form Appstore
+        .btn.btn-large.white.stoq-green-text Download from Appstore
 
   section.section.padded-top-cozy
     .container.margined-top-cozy
-      Nugget(color="green")
+      Nugget(color="stoq-green-flat")
       h5.center What makes Stoq different?
 
 </template>

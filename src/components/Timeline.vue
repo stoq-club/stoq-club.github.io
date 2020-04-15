@@ -9,7 +9,7 @@
 				.full-width.margined-top-cozy
 					
 						.col.s12.m3
-							.round-counter.white 1
+							.round-counter.z-depth-3.white 1
 						.col.s12.m9
 							.card-panel
 								h6 Invest smarter
@@ -20,13 +20,13 @@
 				.full-width.margined-top-cozy
 					
 						.col.s12.m3.hide-on-med-and-up
-							.round-counter.white 2
+							.round-counter.z-depth-3.white 2
 						.col.s12.m9
 							.card-panel
 								h6.right-align Invest smarter
 								p.right-align.light.no-margin Take advantage of AI driven strategies and secure your future today
 						.col.s12.m3.hide-on-small-only
-							.round-counter.white 2
+							.round-counter.z-depth-3.white 2
 			.col.s4
 				.vertical-line.white
 					.dot.white
@@ -66,9 +66,9 @@
 
   .card-panel {
     overflow: hidden;
-    -webkit-box-shadow: 0px 8px 24px 0px #28c76f;
-    -moz-box-shadow: 0px 8px 24px 0px #28c76f;
-    box-shadow: 0px 8px 24px 0px #28c76f;
+    // -webkit-box-shadow: 0px 8px 24px 0px #28c76f;
+    // -moz-box-shadow: 0px 8px 24px 0px #28c76f;
+    // box-shadow: 0px 8px 24px 0px #28c76f;
 
     padding: 16px;
     padding-top: 4px;
