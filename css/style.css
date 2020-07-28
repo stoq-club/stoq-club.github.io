@@ -1,0 +1,65 @@
+body {
+  background-color: #25272c;
+  font-family: sans-serif;
+}
+
+.stoq-combo {
+  background-color: #ffd8a8;
+}
+
+.stoq-combo-text {
+  color: #ffd8a8;
+}
+
+.stoq-black {
+  background-color: #25272c;
+}
+
+.stoq-black-text {
+  color: #25272c;
+}
+
+.strong {
+  font-weight: bold;
+}
+
+.semibold {
+  font-weight: 600;
+}
+
+.item-cards {
+  width: 20em;
+  border-radius: 40px;
+  background: linear-gradient(145deg, #212328, #282a2f);
+  box-shadow: 17px 17px 34px #15171a, -17px -17px 34px #35373e;
+}
+
+.material-icons {
+  color: #b89870;
+  padding: 1em;
+}
+.small-circle {
+  border-radius: 50%;
+  height: 0.5cm;
+  width: 0.5cm;
+}
+
+.min-screen-height {
+  min-height: 100vh;
+}
+
+.margined-left-comfortable {
+  margin-left: 45px;
+}
+
+.margined-right-comfortable {
+  margin-right: 45px;
+}
+
+.padded-left-comfortable {
+  padding-left: 45px !important;
+}
+
+.padded-right-comfortable {
+  padding-right: 45px !important;
+}
