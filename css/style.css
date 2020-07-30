@@ -3,10 +3,15 @@ body {
     font-family: sans-serif;
 }
 
+.about-border{
+    border: 3.5px solid  #ffd8a8;
+}
 .stoq-combo {
     background-color: #ffd8a8;
 }
-
+.stoq-footer{
+background-color: #393c43;
+}
 .stoq-combo-text {
     color: #ffd8a8;
 }
