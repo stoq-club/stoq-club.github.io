@@ -5,6 +5,12 @@
     font-weight: 400;
     src: url(../fonts/material-icons.woff2) format('woff2');
   }
+  @font-face {
+    font-family: 'Stoq-font';
+    font-style: normal;
+    font-weight: 400;
+    src: url(css/stoq-font.ttf) format('ttf');
+  }
   .material-icons {
     font-family: 'Material Icons';
     font-weight: normal;
