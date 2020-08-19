@@ -9,7 +9,7 @@
     font-family: 'Stoq-font';
     font-style: normal;
     font-weight: 400;
-    src: url(css/stoq-font.ttf) format('ttf');
+    src: url(../fonts/stoq-font.ttf) format('ttf');
   }
   .material-icons {
     font-family: 'Material Icons';
