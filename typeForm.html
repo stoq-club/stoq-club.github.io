@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+        <link rel="icon" href="images/stoq_logo_bg_fill.png" />
+        <title>STOQ Type Form</title>
+
+        <!-- Compiled and minified CSS -->
+        <link rel="stylesheet" href="css/materialize.min.css" />
+        <link rel="stylesheet" href="css/layout.css" />
+        <link rel="stylesheet" href="css/style.css" />
+
+        <!--Import Google Icon Font-->
+        <link href="css/MaterialIcons.css" rel="stylesheet" />
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    </head>
+
+    <body>
+        <section class="page1 section min-screen-height valign-wrapper">
+            <div class="row white-text">
+                <form id="form" class="col s12">
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input
+                            id="First Name"
+                            type="text"
+                            name="FirstName"
+                            class="validate"
+                        />
+                        <label for="First Name">First Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input
+                            id="Last Name"
+                            type="text"
+                            name="LastName"
+                            class="validate"
+                        />
+                        <label for="Last Name">Last Name</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">phone</i>
+                        <input
+                            id="icon_telephone"
+                            type="tel"
+                            nmae="Telephone"
+                            class="validate"
+                        />
+                        <label for="icon_telephone">Telephone</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix">mail</i>
+                        <input
+                            id="email"
+                            type="email"
+                            name="Email"
+                            class="validate"
+                        />
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">edit</i>
+                        <label>Do you have Demat Account?</label>
+
+                        <div
+                            class="input-field col s6 margined-top-comfortable"
+                        >
+                            <label>
+                                <input name="Yes" type="radio" />
+                                <span>Yes</span>
+                            </label>
+                        </div>
+                        <div
+                            class="input-field col s6 margined-top-comfortable"
+                        >
+                            <label>
+                                <input name="No" type="radio" />
+                                <span>No</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div
+                        class="col s12 stoq-combo-text margined-top-comfortable"
+                    >
+                        This is an inline input field:
+                        <div
+                            class="input-field inline margined-left-comfortable"
+                            style="width: 10cm;"
+                        >
+                            <input id="Broker" type="text" class="validate" />
+                            <label for="Broker">Broker Name</label>
+                        </div>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">edit</i>
+                        <label>Are You Trader or Investor?</label>
+
+                        <div
+                            class="input-field col s6 margined-top-comfortable"
+                        >
+                            <label>
+                                <input name="Trader" type="radio" />
+                                <span>Trader</span>
+                            </label>
+                        </div>
+                        <div
+                            class="input-field col s6 margined-top-comfortable"
+                        >
+                            <label>
+                                <input name="Investor" type="radio" />
+                                <span>Investor</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="Trader selectt">
+                        <div class="input-field col s12">
+                            <label>What is your trading style ?</label>
+    
+                            <div
+                                class="input-field col s4 margined-top-comfortable"
+                            >
+                                <label>
+                                    <input name="Intraday" type="radio" />
+                                    <span>Intraday</span>
+                                </label>
+                            </div>
+                            <div
+                                class="input-field col s4 margined-top-comfortable"
+                            >
+                                <label>
+                                    <input name="Swing" type="radio" />
+                                    <span>Swing</span>
+                                </label>
+                            </div>
+                            <div
+                                class="input-field col s4 margined-top-comfortable"
+                            >
+                                <label>
+                                    <input name="Position" type="radio" />
+                                    <span>Position</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </body>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('input[type="radio"]').click(function () {
+                var inputValue = $(this).attr('name')
+                $('.' + inputValue).toggle()
+            })
+        })
+    </script>
+</html>
