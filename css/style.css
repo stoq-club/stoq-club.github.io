@@ -1,17 +1,27 @@
+@font-face {
+    font-family: 'stoq-font';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/stoq-font.ttf) format('truetype');
+}
+
 body {
     background-color: #25272c;
     font-family: stoq-font;
 }
 
-.about-border{
-    border: 3.5px solid  #ffd8a8;
+.about-border {
+    border: 3.5px solid #ffd8a8;
 }
+
 .stoq-combo {
     background-color: #ffd8a8;
 }
-.stoq-footer{
-background-color: #393c43;
+
+.stoq-footer {
+    background-color: #393c43;
 }
+
 .stoq-combo-text {
     color: #ffd8a8;
 }
