@@ -15,6 +15,20 @@
         <link href="css/MaterialIcons.css" rel="stylesheet" />
         <script type="text/javascript" src="js/materialize.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+        <style>
+            input {
+                color: white !important;
+            }
+
+            input:focus {
+                border-bottom-color: #ffd8a8 !important;
+            }
+
+            label.active {
+                color: #ffd8a8 !important;
+            }
+        </style>
     </head>
 
     <body>
@@ -41,384 +55,433 @@
                 </div>
             </div>
         </section>
-
-        <section class="page1 section min-screen-height valign-wrapper">
-            <div class="row white-text">
-                <form id="form" class="col s12">
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">account_circle</i>
-                        <input
-                            id="First Name"
-                            type="text"
-                            name="FirstName"
-                            class="validate"
-                        />
-                        <label for="First Name">First Name</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <input
-                            id="Last Name"
-                            type="text"
-                            name="LastName"
-                            class="validate"
-                        />
-                        <label for="Last Name">Last Name</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">phone</i>
-                        <input
-                            id="icon_telephone"
-                            type="tel"
-                            nmae="Telephone"
-                            class="validate"
-                        />
-                        <label for="icon_telephone">Telephone</label>
-                    </div>
-                    <div class="input-field col s6">
-                        <i class="material-icons prefix">mail</i>
-                        <input
-                            id="email"
-                            type="email"
-                            name="Email"
-                            class="validate"
-                        />
-                        <label for="email">Email</label>
-                    </div>
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">edit</i>
-                        <label>Do you have Demat Account?</label>
-
-                        <div
-                            class="input-field col s6 margined-top-comfortable"
-                        >
-                            <label>
-                                <input name="Yes" type="radio" />
-                                <span>Yes</span>
-                            </label>
+        <div id="app">
+            <section class="page1 section min-screen-height valign-wrapper">
+                <div class="row white-text">
+                    <form id="form" class="col s12">
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">account_circle</i>
+                            <input
+                                id="First Name"
+                                type="text"
+                                name="FirstName"
+                                class="validate"
+                                v-model="user.firstname"
+                            />
+                            <label for="First Name">First Name</label>
                         </div>
-                        <div
-                            class="input-field col s6 margined-top-comfortable"
-                        >
-                            <label>
-                                <input name="No" type="radio" />
-                                <span>No</span>
-                            </label>
+                        <div class="input-field col s6">
+                            <input
+                                id="Last Name"
+                                type="text"
+                                name="LastName"
+                                class="validate"
+                                v-model="user.lastname"
+                            />
+                            <label for="Last Name">Last Name</label>
                         </div>
-                    </div>
-                    <div
-                        class="col s12 stoq-combo-text margined-top-comfortable"
-                    >
-                        Name of your Broker
-                        <div
-                            class="input-field inline margined-left-comfortable"
-                            style="width: 10cm;"
-                        >
-                            <input id="Broker" type="text" class="validate" />
-                            <label for="Broker">Broker Name</label>
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">phone</i>
+                            <input
+                                id="icon_telephone"
+                                type="tel"
+                                nmae="Telephone"
+                                class="validate"
+                                v-model="user.phone"
+                            />
+                            <label for="icon_telephone">Telephone</label>
                         </div>
-                    </div>
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">edit</i>
-                        <label>Are You Trader or Investor?</label>
-
-                        <div
-                            class="input-field col s6 margined-top-comfortable"
-                        >
-                            <label>
-                                <input name="Trader" type="radio" />
-                                <span>Trader</span>
-                            </label>
+                        <div class="input-field col s6">
+                            <i class="material-icons prefix">mail</i>
+                            <input
+                                id="email"
+                                type="email"
+                                name="Email"
+                                class="validate"
+                                v-model="user.email"
+                            />
+                            <label for="email">Email</label>
                         </div>
-                        <div
-                            class="input-field col s6 margined-top-comfortable"
-                        >
-                            <label>
-                                <input name="Investor" type="radio" />
-                                <span>Investor</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div class="Trader selectt">
                         <div class="input-field col s12">
-                            <label>What is your trading style ?</label>
+                            <i class="material-icons prefix">edit</i>
+                            <label>Do you have Demat Account?</label>
 
                             <div
-                                class="input-field col s4 margined-top-comfortable"
+                                class="input-field col s6 margined-top-comfortable"
                             >
                                 <label>
-                                    <input name="Intraday" type="radio" />
-                                    <span>Intraday</span>
+                                    <input
+                                        name="hasDemat"
+                                        value="yes"
+                                        type="radio"
+                                        v-model="user.hasDemat"
+                                    />
+                                    <span>Yes</span>
                                 </label>
                             </div>
                             <div
-                                class="input-field col s4 margined-top-comfortable"
+                                class="input-field col s6 margined-top-comfortable"
                             >
                                 <label>
-                                    <input name="Swing" type="radio" />
-                                    <span>Swing</span>
+                                    <input
+                                        name="hasDemat"
+                                        value="no"
+                                        type="radio"
+                                        v-model="user.hasDemat"
+                                    />
+                                    <span>No</span>
                                 </label>
                             </div>
+                        </div>
+                        <div
+                            class="col s12 stoq-combo-text margined-top-comfortable"
+                            v-if="user.hasDemat == 'yes'"
+                        >
+                            Name of your Broker
                             <div
-                                class="input-field col s4 margined-top-comfortable"
+                                class="input-field inline margined-left-comfortable"
+                                style="width: 10cm;"
                             >
-                                <label>
-                                    <input name="Position" type="radio" />
-                                    <span>Position</span>
-                                </label>
+                                <input
+                                    id="Broker"
+                                    type="text"
+                                    class="validate"
+                                    v-model="user.broker"
+                                />
+                                <label for="Broker">Broker Name</label>
                             </div>
                         </div>
                         <div class="input-field col s12">
+                            <i class="material-icons prefix">edit</i>
+                            <label>Are You Trader or Investor?</label>
+
+                            <div
+                                class="input-field col s6 margined-top-comfortable"
+                            >
+                                <label>
+                                    <input name="Trader" type="radio" />
+                                    <span>Trader</span>
+                                </label>
+                            </div>
+                            <div
+                                class="input-field col s6 margined-top-comfortable"
+                            >
+                                <label>
+                                    <input name="Investor" type="radio" />
+                                    <span>Investor</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="Trader selectt">
+                            <div class="input-field col s12">
+                                <label>What is your trading style ?</label>
+
+                                <div
+                                    class="input-field col s4 margined-top-comfortable"
+                                >
+                                    <label>
+                                        <input name="Intraday" type="radio" />
+                                        <span>Intraday</span>
+                                    </label>
+                                </div>
+                                <div
+                                    class="input-field col s4 margined-top-comfortable"
+                                >
+                                    <label>
+                                        <input name="Swing" type="radio" />
+                                        <span>Swing</span>
+                                    </label>
+                                </div>
+                                <div
+                                    class="input-field col s4 margined-top-comfortable"
+                                >
+                                    <label>
+                                        <input name="Position" type="radio" />
+                                        <span>Position</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="input-field col s12">
+                                <label
+                                    >What is the profit are you making
+                                    currently?</label
+                                >
+
+                                <div
+                                    class="input-field col s4 margined-top-comfortable"
+                                >
+                                    <label>
+                                        <input
+                                            name="20-50k/month"
+                                            type="radio"
+                                        />
+                                        <span>20-50k/month</span>
+                                    </label>
+                                </div>
+                                <div
+                                    class="input-field col s4 margined-top-comfortable"
+                                >
+                                    <label>
+                                        <input
+                                            name="1-3lac/month"
+                                            type="radio"
+                                        />
+                                        <span>1-3lac/month</span>
+                                    </label>
+                                </div>
+                                <div
+                                    class="input-field col s4 margined-top-comfortable"
+                                >
+                                    <label>
+                                        <input
+                                            name="10-20lac/month"
+                                            type="radio"
+                                        />
+                                        <span>10-20lac/month</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="input-field col s12">
+                                <label>What market type you trade in ?</label>
+
+                                <div
+                                    class="input-field col s6 margined-top-comfortable"
+                                >
+                                    <label>
+                                        <input
+                                            name="Cash Segment"
+                                            type="radio"
+                                        />
+                                        <span>Cash Segment</span>
+                                    </label>
+                                </div>
+                                <div
+                                    class="input-field col s6 margined-top-comfortable"
+                                >
+                                    <label>
+                                        <input name="F&O" type="radio" />
+                                        <span>F&O</span>
+                                    </label>
+                                </div>
+                                <div
+                                    class="input-field col s6 margined-top-comfortable"
+                                >
+                                    <label>
+                                        <input name="Commodity" type="radio" />
+                                        <span>Commodity</span>
+                                    </label>
+                                </div>
+                                <div
+                                    class="input-field col s6 margined-top-comfortable"
+                                >
+                                    <label>
+                                        <input name="Currency" type="radio" />
+                                        <span>Currency</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="Investor selectt">
+                            <div class="input-field col s12">
+                                <label>What is your Investment Style?</label>
+
+                                <div
+                                    class="input-field col s4 margined-top-comfortable"
+                                >
+                                    <label>
+                                        <input
+                                            name="Buy and Hold"
+                                            type="radio"
+                                        />
+                                        <span>Buy and Hold</span>
+                                    </label>
+                                </div>
+                                <div
+                                    class="input-field col s4 margined-top-comfortable"
+                                >
+                                    <label>
+                                        <input name="Momentum" type="radio" />
+                                        <span>Momentum</span>
+                                    </label>
+                                </div>
+                                <div
+                                    class="input-field col s4 margined-top-comfortable"
+                                >
+                                    <label>
+                                        <input
+                                            name="Constant Rebalancing"
+                                            type="radio"
+                                        />
+                                        <span>Constant Rebalancing</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="input-field col s12">
+                                <label
+                                    >What is your average monthly return</label
+                                >
+
+                                <div
+                                    class="input-field col s6 margined-top-comfortable"
+                                >
+                                    <label>
+                                        <input name="1-3%/month" type="radio" />
+                                        <span>1-3%/month</span>
+                                    </label>
+                                </div>
+                                <div
+                                    class="input-field col s6 margined-top-comfortable"
+                                >
+                                    <label>
+                                        <input name="4-7%/month" type="radio" />
+                                        <span>4-7%/month</span>
+                                    </label>
+                                </div>
+                                <div
+                                    class="input-field col s6 margined-top-comfortable"
+                                >
+                                    <label>
+                                        <input
+                                            name="10-12%month"
+                                            type="radio"
+                                        />
+                                        <span>10-12%month</span>
+                                    </label>
+                                </div>
+                                <div
+                                    class="input-field col s6 margined-top-comfortable"
+                                >
+                                    <label>
+                                        <input
+                                            name="CI make losses month on month basis."
+                                            type="radio"
+                                        />
+                                        <span
+                                            >I make losses month on month
+                                            basis.</span
+                                        >
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="input-field col s12 margined-top-comfortable"
+                        >
+                            <i class="material-icons prefix">edit</i>
                             <label
-                                >What is the profit are you making
-                                currently?</label
+                                >Do you use any Professional help to Trade or
+                                Invest in Market ?</label
                             >
 
                             <div
-                                class="input-field col s4 margined-top-comfortable"
+                                class="input-field col s6 margined-top-comfortable"
                             >
                                 <label>
-                                    <input name="20-50k/month" type="radio" />
-                                    <span>20-50k/month</span>
+                                    <input name="Yes" type="radio" />
+                                    <span>Yes</span>
                                 </label>
                             </div>
                             <div
-                                class="input-field col s4 margined-top-comfortable"
+                                class="input-field col s6 margined-top-comfortable"
                             >
                                 <label>
-                                    <input name="1-3lac/month" type="radio" />
-                                    <span>1-3lac/month</span>
+                                    <input name="No" type="radio" />
+                                    <span>No</span>
                                 </label>
                             </div>
+                        </div>
+                        <div
+                            class="col s12 stoq-combo-text margined-top-comfortable"
+                        >
+                            Name your Professional Advisor
                             <div
-                                class="input-field col s4 margined-top-comfortable"
+                                class="input-field inline margined-left-comfortable"
+                                style="width: 10cm;"
                             >
-                                <label>
-                                    <input name="10-20lac/month" type="radio" />
-                                    <span>10-20lac/month</span>
-                                </label>
+                                <input
+                                    id="Advisor"
+                                    type="text"
+                                    class="validate"
+                                />
+                                <label for="Advisor">Advisor Name</label>
                             </div>
                         </div>
                         <div class="input-field col s12">
-                            <label>What market type you trade in ?</label>
+                            <i class="material-icons prefix">edit</i>
+                            <label
+                                >How many years experience do you have in market
+                                ?</label
+                            >
 
                             <div
-                                class="input-field col s6 margined-top-comfortable"
+                                class="input-field col s3 m6 margined-top-comfortable"
                             >
                                 <label>
-                                    <input name="Cash Segment" type="radio" />
-                                    <span>Cash Segment</span>
+                                    <input name="New to market" type="radio" />
+                                    <span>New to market</span>
                                 </label>
                             </div>
                             <div
-                                class="input-field col s6 margined-top-comfortable"
+                                class="input-field col s3 m6 margined-top-comfortable"
                             >
                                 <label>
-                                    <input name="F&O" type="radio" />
-                                    <span>F&O</span>
+                                    <input name="2-3 yrs" type="radio" />
+                                    <span>2-3 yrs</span>
                                 </label>
                             </div>
                             <div
-                                class="input-field col s6 margined-top-comfortable"
+                                class="input-field col s3 m6 margined-top-comfortable"
                             >
                                 <label>
-                                    <input name="Commodity" type="radio" />
-                                    <span>Commodity</span>
+                                    <input name="5-10yrs" type="radio" />
+                                    <span>5-10yrs</span>
                                 </label>
                             </div>
                             <div
-                                class="input-field col s6 margined-top-comfortable"
+                                class="input-field col s3 m6 margined-top-comfortable"
                             >
                                 <label>
-                                    <input name="Currency" type="radio" />
-                                    <span>Currency</span>
+                                    <input name="I am a Veteran" type="radio" />
+                                    <span>I am a Veteran</span>
                                 </label>
                             </div>
                         </div>
-                    </div>
-                    <div class="Investor selectt">
-                        <div class="input-field col s12">
-                            <label>What is your Investment Style?</label>
+                        <div
+                            class="col s12 stoq-combo-text margined-top-comfortable"
+                        >
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    class="filled-in"
+                                    checked="checked"
+                                />
+                                <span
+                                    >I agree to terms and conditions and privacy
+                                    policy.</span
+                                >
+                            </label>
+                        </div>
+                        <div
+                            class="col s12 stoq-combo-text margined-top-comfortable"
+                        >
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    class="filled-in"
+                                    checked="checked"
+                                />
+                                <span
+                                    >I give my consent to Stoq Team to contact
+                                    me in future.</span
+                                >
+                            </label>
+                        </div>
 
-                            <div
-                                class="input-field col s4 margined-top-comfortable"
-                            >
-                                <label>
-                                    <input name="Buy and Hold" type="radio" />
-                                    <span>Buy and Hold</span>
-                                </label>
-                            </div>
-                            <div
-                                class="input-field col s4 margined-top-comfortable"
-                            >
-                                <label>
-                                    <input name="Momentum" type="radio" />
-                                    <span>Momentum</span>
-                                </label>
-                            </div>
-                            <div
-                                class="input-field col s4 margined-top-comfortable"
-                            >
-                                <label>
-                                    <input
-                                        name="Constant Rebalancing"
-                                        type="radio"
-                                    />
-                                    <span>Constant Rebalancing</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="input-field col s12">
-                            <label>What is your average monthly return</label>
-
-                            <div
-                                class="input-field col s6 margined-top-comfortable"
-                            >
-                                <label>
-                                    <input name="1-3%/month" type="radio" />
-                                    <span>1-3%/month</span>
-                                </label>
-                            </div>
-                            <div
-                                class="input-field col s6 margined-top-comfortable"
-                            >
-                                <label>
-                                    <input name="4-7%/month" type="radio" />
-                                    <span>4-7%/month</span>
-                                </label>
-                            </div>
-                            <div
-                                class="input-field col s6 margined-top-comfortable"
-                            >
-                                <label>
-                                    <input name="10-12%month" type="radio" />
-                                    <span>10-12%month</span>
-                                </label>
-                            </div>
-                            <div
-                                class="input-field col s6 margined-top-comfortable"
-                            >
-                                <label>
-                                    <input
-                                        name="CI make losses month on month basis."
-                                        type="radio"
-                                    />
-                                    <span
-                                        >I make losses month on month
-                                        basis.</span
-                                    >
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="input-field col s12 margined-top-comfortable">
-                        <i class="material-icons prefix">edit</i>
-                        <label
-                            >Do you use any Professional help to Trade or Invest
-                            in Market ?</label
-                        >
-
-                        <div
-                            class="input-field col s6 margined-top-comfortable"
-                        >
-                            <label>
-                                <input name="Yes" type="radio" />
-                                <span>Yes</span>
-                            </label>
-                        </div>
-                        <div
-                            class="input-field col s6 margined-top-comfortable"
-                        >
-                            <label>
-                                <input name="No" type="radio" />
-                                <span>No</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div
-                        class="col s12 stoq-combo-text margined-top-comfortable"
-                    >
-                        Name your Professional Advisor
-                        <div
-                            class="input-field inline margined-left-comfortable"
-                            style="width: 10cm;"
-                        >
-                            <input id="Advisor" type="text" class="validate" />
-                            <label for="Advisor">Advisor Name</label>
-                        </div>
-                    </div>
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">edit</i>
-                        <label
-                            >How many years experience do you have in market
-                            ?</label
-                        >
-
-                        <div
-                            class="input-field col s3 m6 margined-top-comfortable"
-                        >
-                            <label>
-                                <input name="New to market" type="radio" />
-                                <span>New to market</span>
-                            </label>
-                        </div>
-                        <div
-                            class="input-field col s3 m6 margined-top-comfortable"
-                        >
-                            <label>
-                                <input name="2-3 yrs" type="radio" />
-                                <span>2-3 yrs</span>
-                            </label>
-                        </div>
-                        <div
-                            class="input-field col s3 m6 margined-top-comfortable"
-                        >
-                            <label>
-                                <input name="5-10yrs" type="radio" />
-                                <span>5-10yrs</span>
-                            </label>
-                        </div>
-                        <div
-                            class="input-field col s3 m6 margined-top-comfortable"
-                        >
-                            <label>
-                                <input name="I am a Veteran" type="radio" />
-                                <span>I am a Veteran</span>
-                            </label>
-                        </div>
-                    </div>
-                    <div
-                        class="col s12 stoq-combo-text margined-top-comfortable"
-                    >
-                        <label>
-                            <input
-                                type="checkbox"
-                                class="filled-in"
-                                checked="checked"
-                            />
-                            <span
-                                >I agree to terms and conditions and privacy
-                                policy.</span
-                            >
-                        </label>
-                    </div>
-                    <div
-                        class="col s12 stoq-combo-text margined-top-comfortable"
-                    >
-                        <label>
-                            <input
-                                type="checkbox"
-                                class="filled-in"
-                                checked="checked"
-                            />
-                            <span
-                                >I give my consent to Stoq Team to contact me in
-                                future.</span
-                            >
-                        </label>
-                    </div>
-                </form>
-            </div>
-        </section>
+                        <div class="btn" @click="submitForm">Submit</div>
+                    </form>
+                </div>
+            </section>
+        </div>
 
         <footer class="page-footer stoq-footer min-screen-height">
             <div class="container">
@@ -556,9 +619,21 @@
 
         <script>
             const app = new Vue({
-                data: {},
+                el: '#app',
+                data: {
+                    user: {
+                        firstname: null,
+                        lastname: null,
+                        phone: null,
+                        email: null,
+                        hasDemat: null,
+                        broker: null,
+                    },
+                },
                 methods: {
-                    submitForm() {},
+                    submitForm() {
+                        console.log({ ...this.user })
+                    },
                 },
             })
         </script>
