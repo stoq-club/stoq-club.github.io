@@ -1,13 +1,21 @@
-@font-face {
+/* @font-face {
     font-family: 'stoq-font';
     font-style: normal;
     font-weight: 400;
     src: url(../fonts/stoq-font.ttf) format('truetype');
+} */
+
+@font-face {
+    font-family: 'sf_pro_textregular';
+    src: url('../fonts/stoq-font-webfont.woff2') format('woff2'),
+        url('../fonts/stoq-font-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
     background-color: #25272c;
-    font-family: stoq-font;
+    font-family: 'sf_pro_textregular';
 }
 
 .about-border {
@@ -91,14 +99,14 @@ body {
     padding-right: 45px !important;
 }
 .input-field label {
-    color:  #ffd8a8;
-  }
-  /* label focus color */
-  .input-field input[type=text]:focus + label {
-    color:  #ffd8a8;
-  }
-  /* label underline focus color */
-  .input-field input[type=text]:focus {
-    border-bottom: 1px solid  #ffd8a8;
-    box-shadow: 0 1px 0 0  #ffd8a8;
-  }
+    color: #ffd8a8;
+}
+/* label focus color */
+.input-field input[type='text']:focus + label {
+    color: #ffd8a8;
+}
+/* label underline focus color */
+.input-field input[type='text']:focus {
+    border-bottom: 1px solid #ffd8a8;
+    box-shadow: 0 1px 0 0 #ffd8a8;
+}
