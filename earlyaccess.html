@@ -1,3 +1,7 @@
+
+
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,9 +32,6 @@
             label.active {
                 color: #ffd8a8 !important;
             }
-            html, body {
-            height: 100%;
-            }
         </style>
     </head>
 
@@ -59,7 +60,7 @@
             </div>
         </section>
         <div id="app">
-            <section class="page1 pushpin section min-screen-height valign-wrapper">
+            <section class="page1 section min-screen-height valign-wrapper">
                 <div class="row white-text">
                     <form id="form" class="col s12">
                         <div class="input-field col s6">
@@ -83,13 +84,7 @@
                             />
                             <label for="Last Name">Last Name</label>
                         </div>
-                    </form>
-                </div>
-            </section>
-            <section class="page1 pushpin section min-screen-height valign-wrapper">
-                <div class="row white-text">
-                    <form id="form" class="col s12">
-                       <div class="input-field col s6">
+                        <div class="input-field col s6">
                             <i class="material-icons prefix">phone</i>
                             <input
                                 id="icon_telephone"
@@ -111,46 +106,41 @@
                             />
                             <label for="email">Email</label>
                         </div>
-                        </form>
-                    </section>
-                    <section class="page1 pushpin section min-screen-height valign-wrapper">
-                            <div class="row white-text input-field ">
-                                <form id="form" class="col s12">
-                                    <i class="material-icons prefix">edit</i>
-                                    <label>Do you have Demat Account?</label>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">edit</i>
+                            <label>Do you have Demat Account?</label>
 
-                                    <div
-                                         class="input-field col s6 margined-top-comfortable"
-                                    >
-                                        <label>
-                                            <input
-                                                name="hasDemat"
-                                                value="yes"
-                                                type="radio"
-                                                v-model="user.hasDemat"
-                                            />
-                                            <span>Yes</span>
-                                        </label>
-                                    </div>
-                                    <div
-                                        class="input-field col s6 margined-top-comfortable"
-                                    >
-                                             <label>
-                                                 <input
-                                                     name="hasDemat"
-                                                     value="no"
-                                                     type="radio"
-                                                     v-model="user.hasDemat"
-                                                 />
-                                                 <span>No</span>
-                                             </label>
-                                    </div>
-                            </form>
+                            <div
+                                class="input-field col s6 margined-top-comfortable"
+                            >
+                                <label>
+                                    <input
+                                        name="hasDemat"
+                                        value="yes"
+                                        type="radio"
+                                        v-model="user.hasDemat"
+                                    />
+                                    <span>Yes</span>
+                                </label>
+                            </div>
+                            <div
+                                class="input-field col s6 margined-top-comfortable"
+                            >
+                                <label>
+                                    <input
+                                        name="hasDemat"
+                                        value="no"
+                                        type="radio"
+                                        v-model="user.hasDemat"
+                                    />
+                                    <span>No</span>
+                                </label>
+                            </div>
                         </div>
-                 </section>
-                 <section class="page1 pushpin section min-screen-height valign-wrapper">
-                    <div class="row white-text input-field ">
-                        <form id="form" class="col s12 stoq-combo-text" v-if="user.hasDemat == 'yes'">
+                        <div
+                            class="col s12 stoq-combo-text margined-top-comfortable"
+                            v-if="user.hasDemat == 'yes'"
+                        >
                             Name of your Broker
                             <div
                                 class="input-field inline margined-left-comfortable"
@@ -164,49 +154,29 @@
                                 />
                                 <label for="Broker">Broker Name</label>
                             </div>
-                        </form>
                         </div>
-                        </section>
-                        <section class="page1 pushpin min-screen-height valign-wrapper">
-                            <div class="row white-text input-field">
-                                <form id="form" class="col s12 stoq-combo-text" >
-                                    <i class="material-icons prefix">edit</i>
-                                        <label>Are You Trader or Investor?</label>
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">edit</i>
+                            <label>Are You Trader or Investor?</label>
 
-                                         <div
-                                            class="input-field col s6 margined-top-comfortable"
-                                        >
-                                        <label>
-                                            <input
-                                                name="Trader"
-                                                value="yes"
-                                                type="radio"
-                                                v-model="user.Trader"
-                                            />
-                                            <span>Trader</span>
-                                        </label>
-                                        </div>
-                                        <div
-                                        class="input-field col s6 margined-top-comfortable"
-                                        >
-                                        <label>
-                                            <input
-                                                name="Investor"
-                                                value="yes"
-                                                type="radio"
-                                                v-model="user.Investor"
-                                            />
-                                            <span>Yes</span>
-                                        </label>
-                                        </div>
-                            </form>
+                            <div
+                                class="input-field col s6 margined-top-comfortable"
+                            >
+                                <label>
+                                    <input name="Trader" type="radio" />
+                                    <span>Trader</span>
+                                </label>
+                            </div>
+                            <div
+                                class="input-field col s6 margined-top-comfortable"
+                            >
+                                <label>
+                                    <input name="Investor" type="radio" />
+                                    <span>Investor</span>
+                                </label>
+                            </div>
                         </div>
-                        </section>
-                        
-                        <section class="page1 pushpin min-screen-height valign-wrapper">
-                            <div class="row white-text input-field Trader selectt" v-if="user.Trader == 'yes'">
-                                <form id="form" class="col s12 stoq-combo-text" >
-                       
+                        <div class="Trader selectt">
                             <div class="input-field col s12">
                                 <label>What is your trading style ?</label>
 
@@ -314,11 +284,7 @@
                                     </label>
                                 </div>
                             </div>
-                        </form>
                         </div>
-                        </section>
-        </div>
-                        <!--
                         <div class="Investor selectt">
                             <div class="input-field col s12">
                                 <label>What is your Investment Style?</label>
@@ -552,7 +518,7 @@
                                         Privacy Policy
                                     </a>
                                 </li>
-                                 <li class="margined-bottom-compact">
+                                <!-- <li class="margined-bottom-compact">
                                     <a class="white-text-lighten-3" href="#!">
                                         Disclosure Policy
                                     </a>
@@ -561,7 +527,7 @@
                                     <a class="white-text-lighten-3" href="#!">
                                         Complaints</a
                                     >
-                                </li> 
+                                </li> -->
                             </ul>
                         </div>
                         <div class="col m4 s3">
@@ -654,7 +620,7 @@
                 </div>
             </div>
         </footer>
-    -->
+
         <script>
             const app = new Vue({
                 el: '#app',
@@ -675,15 +641,6 @@
                 },
             })
         </script>
-        <script>
-            if (!window.jQuery) { document.write('<script src="bin/jquery-3.2.1.min.js"><\/script>'); }
-    
-        </script>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-    var elems = document.querySelectorAll('.pushpin');
-    var instances = M.Pushpin.init(elems, options);
-  });
-        </script>
+        
     </body>
 </html>
