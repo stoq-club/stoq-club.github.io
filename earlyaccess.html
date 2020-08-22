@@ -684,6 +684,20 @@
         methods: {
           submitForm() {
             console.log({ ...this.user })
+
+            fetch('https://stoq-api.herokuapp.com/api/earlyaccess', {
+              method: 'POST',
+              mode: 'cors',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({ user: this.user }),
+            })
+              .then((response) => response.json())
+              .then(() => {
+                window.location.href = '/thankyou.html'
+              })
+              .catch((err) => console.eror(err))
           },
         },
       })
