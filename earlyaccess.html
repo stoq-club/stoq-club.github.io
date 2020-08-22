@@ -97,6 +97,7 @@
                 <div
                   class="btn stoq-combo stoq-black-text"
                   @click="showStep = 1"
+                  :disabled="!user.firstname"
                 >
                   Continue
                 </div>
@@ -122,6 +123,7 @@
                 <div
                   class="btn stoq-combo stoq-black-text"
                   @click="showStep = 2"
+                  :disabled="!user.phone"
                 >
                   Continue
                 </div>
@@ -149,6 +151,7 @@
                 <div
                   class="btn stoq-combo stoq-black-text"
                   @click="showStep = 3"
+                  :disabled="!user.email"
                 >
                   Continue
                 </div>
@@ -201,6 +204,7 @@
                 <div
                   class="btn stoq-combo stoq-black-text"
                   @click="showStep = 5"
+                  :disabled="!user.broker"
                 >
                   Continue
                 </div>
@@ -452,6 +456,7 @@
                 <div
                   class="btn stoq-combo stoq-black-text"
                   @click="showStep = 13"
+                  :disabled="!user.advisor"
                 >
                   Continue
                 </div>
