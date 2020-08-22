@@ -69,6 +69,7 @@
             leave-active-class="animated fadeOutUp"
             mode="out-in"
             :duration="500"
+            @after-enter="M.updateTextFields"
           >
             <div class="row white-text" v-if="showStep == 0" key="step0">
               <p class="col s12 margined-bottom-comfortable">
@@ -691,6 +692,9 @@
             terms: false,
             contact: false,
           },
+        },
+        updated(){
+          M.updateTextFields()  
         },
         methods: {
           submitForm() {
