@@ -65,8 +65,9 @@
           <transition
             enter-active-class="animated fadeInUp"
             leave-active-class="animated fadeOutUp"
+            mode="out-in"
           >
-            <div class="row white-text" v-show="showStep == 0">
+            <div class="row white-text" v-if="showStep == 0" key="step0">
               <p class="col s12">
                 Let's start by getting to know each other.
               </p>
@@ -100,13 +101,12 @@
                 </div>
               </div>
             </div>
-          </transition>
 
-          <transition
-            enter-active-class="animated fadeInUp"
-            leave-active-class="animated fadeOutUp"
-          >
-            <div class="row white-text" v-show="showStep == 1">
+            <div class="row white-text" v-if="showStep == 1" key="step1">
+              <p class="col s12">
+                Please enter your mobile number.
+              </p>
+
               <div class="input-field col s6 m3">
                 <input
                   id="user_phone"
@@ -129,6 +129,7 @@
                 </div>
               </div>
             </div>
+
             <div class="row white-text" v-if="showStep == 2" key="step2">
               <p class="col s12">
                 Please enter your email.
