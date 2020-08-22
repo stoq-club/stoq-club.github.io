@@ -129,6 +129,32 @@
                 </div>
               </div>
             </div>
+            <div class="row white-text" v-if="showStep == 2" key="step2">
+              <p class="col s12">
+                Please enter your email.
+              </p>
+              <div class="input-field col s6 m3">
+                <input
+                  id="user_email"
+                  type="text"
+                  name="email"
+                  class="validate"
+                  v-model="user.email"
+                />
+                <label for="user_email">Email</label>
+              </div>
+              <div class="col s12">
+                <div
+                  class="btn stoq-combo stoq-black-text"
+                  @click="showStep = 3"
+                >
+                  Continue
+                </div>
+                <div class="btn btn-flat white-text" @click="showStep = 1">
+                  Back
+                </div>
+              </div>
+            </div>
           </transition>
         </div>
       </section>
