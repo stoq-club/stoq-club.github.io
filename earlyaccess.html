@@ -130,7 +130,10 @@
                 >
                   Continue
                 </div>
-                <div class="btn margined-bottom-compact btn-flat white-text" @click="showStep = 0">
+                <div
+                  class="btn margined-bottom-compact btn-flat white-text"
+                  @click="showStep = 0"
+                >
                   Back
                 </div>
               </div>
@@ -158,7 +161,10 @@
                 >
                   Continue
                 </div>
-                <div class="btn margined-bottom-compact btn-flat white-text" @click="showStep = 1">
+                <div
+                  class="btn margined-bottom-compact btn-flat white-text"
+                  @click="showStep = 1"
+                >
                   Back
                 </div>
               </div>
@@ -183,7 +189,10 @@
                   No
                 </div>
 
-                <div class="btn margined-bottom-compact btn-flat white-text" @click="showStep = 2">
+                <div
+                  class="btn margined-bottom-compact btn-flat white-text"
+                  @click="showStep = 2"
+                >
                   Back
                 </div>
               </div>
@@ -211,7 +220,10 @@
                 >
                   Continue
                 </div>
-                <div class="btn margined-bottom-compact btn-flat white-text" @click="showStep = 3">
+                <div
+                  class="btn margined-bottom-compact btn-flat white-text"
+                  @click="showStep = 3"
+                >
                   Back
                 </div>
               </div>
@@ -236,7 +248,10 @@
                   Investor
                 </div>
 
-                <div class="btn margined-bottom-compact btn-flat white-text" @click="showStep = 3">
+                <div
+                  class="btn margined-bottom-compact btn-flat white-text"
+                  @click="showStep = 3"
+                >
                   Back
                 </div>
               </div>
@@ -248,27 +263,56 @@
               </p>
               <div class="col s12">
                 <div
-                  class="btn margined-bottom-compact truncate stoq-combo stoq-black-text"
-                  @click="user.trading.style = 'swing'; showStep = 7"
+                  :class="'btn margined-bottom-compact truncate ' + (user.trading.style.swing ? 'stoq-combo stoq-black-text' : 'btn-flat white-text')"
+                  @click="user.trading.style.swing = !user.trading.style.swing"
                 >
+                  <i
+                    v-if="user.trading.style.swing"
+                    class="material-icons left"
+                  >
+                    check
+                  </i>
                   Swing
                 </div>
 
                 <div
-                  class="btn margined-bottom-compact truncate stoq-combo stoq-black-text"
-                  @click="user.trading.style = 'intraday'; showStep = 7"
+                  :class="'btn margined-bottom-compact truncate ' + (user.trading.style.intraday ? 'stoq-combo stoq-black-text' : 'btn-flat white-text')"
+                  @click="user.trading.style.intraday = !user.trading.style.intraday"
                 >
+                  <i
+                    v-if="user.trading.style.intraday"
+                    class="material-icons left"
+                  >
+                    check
+                  </i>
                   Intraday
                 </div>
 
                 <div
-                  class="btn margined-bottom-compact truncate stoq-combo stoq-black-text"
-                  @click="user.trading.style = 'position'; showStep = 7"
+                  :class="'btn margined-bottom-compact truncate ' + (user.trading.style.position ? 'stoq-combo stoq-black-text' : 'btn-flat white-text')"
+                  @click="user.trading.style.position = !user.trading.style.position"
                 >
+                  <i
+                    v-if="user.trading.style.position"
+                    class="material-icons left"
+                  >
+                    check
+                  </i>
+
                   Position
                 </div>
-
-                <div class="btn margined-bottom-compact btn-flat white-text" @click="showStep = 5">
+              </div>
+              <div class="col s12">
+                <div
+                  class="btn margined-bottom-compact truncate stoq-combo stoq-black-text"
+                  @click="showStep = 7"
+                >
+                  Continue
+                </div>
+                <div
+                  class="btn margined-bottom-compact btn-flat white-text"
+                  @click="showStep = 5"
+                >
                   Back
                 </div>
               </div>
@@ -300,7 +344,10 @@
                   10-20lac/month
                 </div>
 
-                <div class="btn margined-bottom-compact btn-flat white-text" @click="showStep = 6">
+                <div
+                  class="btn margined-bottom-compact btn-flat white-text"
+                  @click="showStep = 6"
+                >
                   Back
                 </div>
               </div>
@@ -312,34 +359,66 @@
               </p>
               <div class="col s12">
                 <div
-                  class="btn margined-bottom-compact truncate stoq-combo stoq-black-text"
-                  @click="user.trading.market = 'Cash Segment'; showStep = 11"
+                  :class="'btn margined-bottom-compact truncate ' + (user.trading.market.cash ? 'stoq-combo stoq-black-text' : 'btn-flat white-text')"
+                  @click="user.trading.market.cash = !user.trading.market.cash"
                 >
+                  <i
+                    class="material-icons left"
+                    v-if="user.trading.market.cash"
+                  >
+                    check
+                  </i>
                   Cash Segment
                 </div>
 
                 <div
-                  class="btn margined-bottom-compact truncate stoq-combo stoq-black-text"
-                  @click="user.trading.market = 'F&O'; showStep = 11"
+                  :class="'btn margined-bottom-compact truncate ' + (user.trading.market.fno ? 'stoq-combo stoq-black-text' : 'btn-flat white-text')"
+                  @click="user.trading.market.fno = !user.trading.market.fno"
                 >
+                  <i class="material-icons left" v-if="user.trading.market.fno">
+                    check
+                  </i>
                   F&O
                 </div>
 
                 <div
-                  class="btn margined-bottom-compact truncate stoq-combo stoq-black-text"
-                  @click="user.trading.market = 'Commodity'; showStep = 11"
+                  :class="'btn margined-bottom-compact truncate ' + (user.trading.market.commodity ? 'stoq-combo stoq-black-text' : 'btn-flat white-text')"
+                  @click="user.trading.market.commodity = !user.trading.market.commodity"
                 >
+                  <i
+                    class="material-icons left"
+                    v-if="user.trading.market.commodity"
+                  >
+                    check
+                  </i>
                   Commodity
                 </div>
 
                 <div
-                  class="btn margined-bottom-compact truncate stoq-combo stoq-black-text"
-                  @click="user.trading.market = 'Currency'; showStep = 11"
+                  :class="'btn margined-bottom-compact truncate ' + (user.trading.market.currency ? 'stoq-combo stoq-black-text' : 'btn-flat white-text')"
+                  @click="user.trading.market.currency = !user.trading.market.currency"
                 >
+                  <i
+                    class="material-icons left"
+                    v-if="user.trading.market.currency"
+                  >
+                    check
+                  </i>
                   Currency
                 </div>
+              </div>
 
-                <div class="btn margined-bottom-compact btn-flat white-text" @click="showStep = 7">
+              <div class="col s12">
+                <div
+                  class="btn margined-bottom-compact truncate stoq-combo stoq-black-text"
+                  @click="showStep = 11"
+                >
+                  Continue
+                </div>
+                <div
+                  class="btn margined-bottom-compact btn-flat white-text"
+                  @click="showStep = 7"
+                >
                   Back
                 </div>
               </div>
@@ -371,7 +450,10 @@
                   Constant Rebalancing
                 </div>
 
-                <div class="btn margined-bottom-compact btn-flat white-text" @click="showStep = 5">
+                <div
+                  class="btn margined-bottom-compact btn-flat white-text"
+                  @click="showStep = 5"
+                >
                   Back
                 </div>
               </div>
@@ -410,7 +492,10 @@
                   I make losses on month to month basis.
                 </div>
 
-                <div class="btn margined-bottom-compact btn-flat white-text" @click="showStep = 9">
+                <div
+                  class="btn margined-bottom-compact btn-flat white-text"
+                  @click="showStep = 9"
+                >
                   Back
                 </div>
               </div>
@@ -435,7 +520,10 @@
                   No
                 </div>
 
-                <div class="btn margined-bottom-compact btn-flat white-text" @click="showStep = 5">
+                <div
+                  class="btn margined-bottom-compact btn-flat white-text"
+                  @click="showStep = 5"
+                >
                   Back
                 </div>
               </div>
@@ -463,7 +551,10 @@
                 >
                   Continue
                 </div>
-                <div class="btn margined-bottom-compact btn-flat white-text" @click="showStep = 11">
+                <div
+                  class="btn margined-bottom-compact btn-flat white-text"
+                  @click="showStep = 11"
+                >
                   Back
                 </div>
               </div>
@@ -502,7 +593,10 @@
                   I am a Veteran.
                 </div>
 
-                <div class="btn margined-bottom-compact btn-flat white-text" @click="showStep = 11">
+                <div
+                  class="btn margined-bottom-compact btn-flat white-text"
+                  @click="showStep = 11"
+                >
                   Back
                 </div>
               </div>
@@ -546,7 +640,10 @@
                 >
                   Submit
                 </div>
-                <div class="btn margined-bottom-compact btn-flat white-text" @click="showStep = 13">
+                <div
+                  class="btn margined-bottom-compact btn-flat white-text"
+                  @click="showStep = 13"
+                >
                   Back
                 </div>
               </div>
@@ -674,9 +771,18 @@
             broker: null,
             type: null,
             trading: {
-              style: null,
+              style: {
+                swing: false,
+                intraday: true,
+                position: false,
+              },
               earning: null,
-              market: null,
+              market: {
+                cash: true,
+                fno: false,
+                commodity: false,
+                currency: false,
+              },
             },
             investment: {
               style: null,
@@ -693,8 +799,8 @@
             contact: false,
           },
         },
-        updated(){
-          M.updateTextFields()  
+        updated() {
+          M.updateTextFields()
         },
         methods: {
           submitForm() {
