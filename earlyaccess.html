@@ -66,9 +66,10 @@
             enter-active-class="animated fadeInUp"
             leave-active-class="animated fadeOutUp"
             mode="out-in"
+            :duration="500"
           >
             <div class="row white-text" v-if="showStep == 0" key="step0">
-              <p class="col s12">
+              <p class="col s12 margined-bottom-comfortable">
                 Let's start by getting to know each other.
               </p>
 
@@ -103,7 +104,7 @@
             </div>
 
             <div class="row white-text" v-if="showStep == 1" key="step1">
-              <p class="col s12">
+              <p class="col s12 margined-bottom-comfortable">
                 Please enter your mobile number.
               </p>
 
@@ -131,10 +132,10 @@
             </div>
 
             <div class="row white-text" v-if="showStep == 2" key="step2">
-              <p class="col s12">
+              <p class="col s12 margined-bottom-comfortable">
                 Please enter your email.
               </p>
-              <div class="input-field col s6 m3">
+              <div class="input-field col s12 m6">
                 <input
                   id="user_email"
                   type="text"
@@ -156,418 +157,396 @@
                 </div>
               </div>
             </div>
+
+            <div class="row white-text" v-if="showStep == 3" key="step3">
+              <p class="col s12 margined-bottom-comfortable">
+                Do you have Demat Account?
+              </p>
+              <div class="col s12">
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.hasDemat = true; showStep = 4"
+                >
+                  Yes
+                </div>
+
+                <div
+                  class="btn-large white stoq-black-text"
+                  @click="user.hasDemat = false; showStep = 5"
+                >
+                  No
+                </div>
+
+                <div class="btn btn-flat white-text" @click="showStep = 2">
+                  Back
+                </div>
+              </div>
+            </div>
+
+            <div class="row white-text" v-if="showStep == 4" key="step4">
+              <p class="col s12 margined-bottom-comfortable">
+                Please tell us the name of your broker.
+              </p>
+              <div class="input-field col s12 m6">
+                <input
+                  id="user_broker"
+                  type="text"
+                  name="broker"
+                  class="validate"
+                  v-model="user.broker"
+                />
+                <label for="user_broker">Broker</label>
+              </div>
+              <div class="col s12">
+                <div
+                  class="btn stoq-combo stoq-black-text"
+                  @click="showStep = 5"
+                >
+                  Continue
+                </div>
+                <div class="btn btn-flat white-text" @click="showStep = 3">
+                  Back
+                </div>
+              </div>
+            </div>
+
+            <div class="row white-text" v-if="showStep == 5" key="step5">
+              <p class="col s12 margined-bottom-comfortable">
+                Are you a Trader or an Investor?
+              </p>
+              <div class="col s12">
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.type = 'trader'; showStep = 6"
+                >
+                  Trader
+                </div>
+
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.type = 'investor'; showStep = 9"
+                >
+                  Investor
+                </div>
+
+                <div class="btn btn-flat white-text" @click="showStep = 3">
+                  Back
+                </div>
+              </div>
+            </div>
+
+            <div class="row white-text" v-if="showStep == 6" key="step6">
+              <p class="col s12 margined-bottom-comfortable">
+                What is your Trading style?
+              </p>
+              <div class="col s12">
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.trading.style = 'swing'; showStep = 7"
+                >
+                  Swing
+                </div>
+
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.trading.style = 'intraday'; showStep = 7"
+                >
+                  Intraday
+                </div>
+
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.trading.style = 'position'; showStep = 7"
+                >
+                  Position
+                </div>
+
+                <div class="btn btn-flat white-text" @click="showStep = 5">
+                  Back
+                </div>
+              </div>
+            </div>
+
+            <div class="row white-text" v-if="showStep == 7" key="step7">
+              <p class="col s12 margined-bottom-comfortable">
+                How much profit are you making currently?
+              </p>
+              <div class="col s12">
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.trading.earning = '20-50k/month'; showStep = 8"
+                >
+                  20-50k/month
+                </div>
+
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.trading.earning = '1-3lac/month'; showStep = 8"
+                >
+                  1-3lac/month
+                </div>
+
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.trading.earning = '10-20lac/month'; showStep = 8"
+                >
+                  10-20lac/month
+                </div>
+
+                <div class="btn btn-flat white-text" @click="showStep = 6">
+                  Back
+                </div>
+              </div>
+            </div>
+
+            <div class="row white-text" v-if="showStep == 8" key="step8">
+              <p class="col s12 margined-bottom-comfortable">
+                Which market type you trade in?
+              </p>
+              <div class="col s12">
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.trading.market = 'Cash Segment'; showStep = 11"
+                >
+                  Cash Segment
+                </div>
+
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.trading.market = 'F&O'; showStep = 11"
+                >
+                  F&O
+                </div>
+
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.trading.market = 'Commodity'; showStep = 11"
+                >
+                  Commodity
+                </div>
+
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.trading.market = 'Currency'; showStep = 11"
+                >
+                  Currency
+                </div>
+
+                <div class="btn btn-flat white-text" @click="showStep = 7">
+                  Back
+                </div>
+              </div>
+            </div>
+
+            <div class="row white-text" v-if="showStep == 9" key="step9">
+              <p class="col s12 margined-bottom-comfortable">
+                What is your Investment style?
+              </p>
+              <div class="col s12">
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.investment.style = 'Buy and Hold'; showStep = 10"
+                >
+                  Buy and Hold
+                </div>
+
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.investment.style = 'Momentum'; showStep = 10"
+                >
+                  Momentum
+                </div>
+
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.investment.style = 'Constant Rebalancing'; showStep = 10"
+                >
+                  Constant Rebalancing
+                </div>
+
+                <div class="btn btn-flat white-text" @click="showStep = 5">
+                  Back
+                </div>
+              </div>
+            </div>
+
+            <div class="row white-text" v-if="showStep == 10" key="step10">
+              <p class="col s12 margined-bottom-comfortable">
+                What is your average monthly return?
+              </p>
+              <div class="col s12">
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.investment.return = '1-3%/month'; showStep = 11"
+                >
+                  1-3%/month
+                </div>
+
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.investment.return = '4-7%/month'; showStep = 11"
+                >
+                  4-7%/month
+                </div>
+
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.investment.return = '10-12%month'; showStep = 11"
+                >
+                  10-12%month
+                </div>
+
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.investment.return = 'losses'; showStep = 11"
+                >
+                  I make losses on month to month basis.
+                </div>
+
+                <div class="btn btn-flat white-text" @click="showStep = 9">
+                  Back
+                </div>
+              </div>
+            </div>
+
+            <div class="row white-text" v-if="showStep == 11" key="step11">
+              <p class="col s12 margined-bottom-comfortable">
+                Do you use any Professional help to Trade or Invest in Market?
+              </p>
+              <div class="col s12">
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.getsHelp = true; showStep = 12"
+                >
+                  Yes
+                </div>
+
+                <div
+                  class="btn-large white stoq-black-text"
+                  @click="user.getsHelp = false; showStep = 13"
+                >
+                  No
+                </div>
+
+                <div class="btn btn-flat white-text" @click="showStep = 5">
+                  Back
+                </div>
+              </div>
+            </div>
+
+            <div class="row white-text" v-if="showStep == 12" key="step12">
+              <p class="col s12 margined-bottom-comfortable">
+                Please tell us the name of your advisor.
+              </p>
+              <div class="input-field col s12 m6">
+                <input
+                  id="user_advisor"
+                  type="text"
+                  name="advisor"
+                  class="validate"
+                  v-model="user.advisor"
+                />
+                <label for="user_advisor">Advisor</label>
+              </div>
+              <div class="col s12">
+                <div
+                  class="btn stoq-combo stoq-black-text"
+                  @click="showStep = 13"
+                >
+                  Continue
+                </div>
+                <div class="btn btn-flat white-text" @click="showStep = 11">
+                  Back
+                </div>
+              </div>
+            </div>
+
+            <div class="row white-text" v-if="showStep == 13" key="step13">
+              <p class="col s12 margined-bottom-comfortable">
+                How many years of experience do you have in market?
+              </p>
+              <div class="col s12">
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.experience = 'New to market'; showStep = 14"
+                >
+                  New to market
+                </div>
+
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.experience = '2-3 years'; showStep = 14"
+                >
+                  2-3 years
+                </div>
+
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.experience = '5-10 years'; showStep = 14"
+                >
+                  5-10 years
+                </div>
+
+                <div
+                  class="btn-large stoq-combo stoq-black-text"
+                  @click="user.experience = 'veteran'; showStep = 14"
+                >
+                  I am a Veteran.
+                </div>
+
+                <div class="btn btn-flat white-text" @click="showStep = 11">
+                  Back
+                </div>
+              </div>
+            </div>
+
+            <div class="row white-text" v-if="showStep == 14" key="step14">
+              <p class="col s12 margined-bottom-comfortable">
+                One last thing...
+              </p>
+              <div class="col s12 stoq-combo-text margined-bottom-comfortable">
+                <label>
+                  <input
+                    type="checkbox"
+                    class="filled-in"
+                    v-model="agreement.terms"
+                  />
+                  <span>
+                    I agree to
+                    <a href="/terms.html">terms and conditions</a> and
+                    <a href="/privacy.html">privacy policy</a>.
+                  </span>
+                </label>
+              </div>
+              <div class="col s12 stoq-combo-text margined-bottom-comfortable">
+                <label>
+                  <input
+                    type="checkbox"
+                    class="filled-in"
+                    v-model="agreement.contact"
+                  />
+                  <span>
+                    I give my consent to STOQ Club to contact me in future.
+                  </span>
+                </label>
+              </div>
+              <div class="col s12">
+                <div
+                  class="btn stoq-combo stoq-black-text"
+                  @click="submitForm"
+                  :disabled="!agreement.terms || !agreement.contact"
+                >
+                  Submit
+                </div>
+                <div class="btn btn-flat white-text" @click="showStep = 13">
+                  Back
+                </div>
+              </div>
+            </div>
           </transition>
         </div>
       </section>
     </div>
-
-    <!--
-                      
-                      
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix">phone</i>
-                            <input
-                                id="icon_telephone"
-                                type="tel"
-                                nmae="Telephone"
-                                class="validate"
-                                v-model="user.phone"
-                            />
-                            <label for="icon_telephone">Telephone</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix">mail</i>
-                            <input
-                                id="email"
-                                type="email"
-                                name="Email"
-                                class="validate"
-                                v-model="user.email"
-                            />
-                            <label for="email">Email</label>
-                        </div>
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">edit</i>
-                            <label>Do you have Demat Account?</label>
-
-                            <div
-                                class="input-field col s6 margined-top-comfortable"
-                            >
-                                <label>
-                                    <input
-                                        name="hasDemat"
-                                        value="yes"
-                                        type="radio"
-                                        v-model="user.hasDemat"
-                                    />
-                                    <span>Yes</span>
-                                </label>
-                            </div>
-                            <div
-                                class="input-field col s6 margined-top-comfortable"
-                            >
-                                <label>
-                                    <input
-                                        name="hasDemat"
-                                        value="no"
-                                        type="radio"
-                                        v-model="user.hasDemat"
-                                    />
-                                    <span>No</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div
-                            class="col s12 stoq-combo-text margined-top-comfortable"
-                            v-if="user.hasDemat == 'yes'"
-                        >
-                            Name of your Broker
-                            <div
-                                class="input-field inline margined-left-comfortable"
-                                style="width: 10cm;"
-                            >
-                                <input
-                                    id="Broker"
-                                    type="text"
-                                    class="validate"
-                                    v-model="user.broker"
-                                />
-                                <label for="Broker">Broker Name</label>
-                            </div>
-                        </div>
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">edit</i>
-                            <label>Are You Trader or Investor?</label>
-
-                            <div
-                                class="input-field col s6 margined-top-comfortable"
-                            >
-                                <label>
-                                    <input name="Trader" type="radio" />
-                                    <span>Trader</span>
-                                </label>
-                            </div>
-                            <div
-                                class="input-field col s6 margined-top-comfortable"
-                            >
-                                <label>
-                                    <input name="Investor" type="radio" />
-                                    <span>Investor</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="Trader selectt">
-                            <div class="input-field col s12">
-                                <label>What is your trading style ?</label>
-
-                                <div
-                                    class="input-field col s4 margined-top-comfortable"
-                                >
-                                    <label>
-                                        <input name="Intraday" type="radio" />
-                                        <span>Intraday</span>
-                                    </label>
-                                </div>
-                                <div
-                                    class="input-field col s4 margined-top-comfortable"
-                                >
-                                    <label>
-                                        <input name="Swing" type="radio" />
-                                        <span>Swing</span>
-                                    </label>
-                                </div>
-                                <div
-                                    class="input-field col s4 margined-top-comfortable"
-                                >
-                                    <label>
-                                        <input name="Position" type="radio" />
-                                        <span>Position</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="input-field col s12">
-                                <label
-                                    >What is the profit are you making
-                                    currently?</label
-                                >
-
-                                <div
-                                    class="input-field col s4 margined-top-comfortable"
-                                >
-                                    <label>
-                                        <input
-                                            name="20-50k/month"
-                                            type="radio"
-                                        />
-                                        <span>20-50k/month</span>
-                                    </label>
-                                </div>
-                                <div
-                                    class="input-field col s4 margined-top-comfortable"
-                                >
-                                    <label>
-                                        <input
-                                            name="1-3lac/month"
-                                            type="radio"
-                                        />
-                                        <span>1-3lac/month</span>
-                                    </label>
-                                </div>
-                                <div
-                                    class="input-field col s4 margined-top-comfortable"
-                                >
-                                    <label>
-                                        <input
-                                            name="10-20lac/month"
-                                            type="radio"
-                                        />
-                                        <span>10-20lac/month</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="input-field col s12">
-                                <label>What market type you trade in ?</label>
-
-                                <div
-                                    class="input-field col s6 margined-top-comfortable"
-                                >
-                                    <label>
-                                        <input
-                                            name="Cash Segment"
-                                            type="radio"
-                                        />
-                                        <span>Cash Segment</span>
-                                    </label>
-                                </div>
-                                <div
-                                    class="input-field col s6 margined-top-comfortable"
-                                >
-                                    <label>
-                                        <input name="F&O" type="radio" />
-                                        <span>F&O</span>
-                                    </label>
-                                </div>
-                                <div
-                                    class="input-field col s6 margined-top-comfortable"
-                                >
-                                    <label>
-                                        <input name="Commodity" type="radio" />
-                                        <span>Commodity</span>
-                                    </label>
-                                </div>
-                                <div
-                                    class="input-field col s6 margined-top-comfortable"
-                                >
-                                    <label>
-                                        <input name="Currency" type="radio" />
-                                        <span>Currency</span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="Investor selectt">
-                            <div class="input-field col s12">
-                                <label>What is your Investment Style?</label>
-
-                                <div
-                                    class="input-field col s4 margined-top-comfortable"
-                                >
-                                    <label>
-                                        <input
-                                            name="Buy and Hold"
-                                            type="radio"
-                                        />
-                                        <span>Buy and Hold</span>
-                                    </label>
-                                </div>
-                                <div
-                                    class="input-field col s4 margined-top-comfortable"
-                                >
-                                    <label>
-                                        <input name="Momentum" type="radio" />
-                                        <span>Momentum</span>
-                                    </label>
-                                </div>
-                                <div
-                                    class="input-field col s4 margined-top-comfortable"
-                                >
-                                    <label>
-                                        <input
-                                            name="Constant Rebalancing"
-                                            type="radio"
-                                        />
-                                        <span>Constant Rebalancing</span>
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="input-field col s12">
-                                <label
-                                    >What is your average monthly return</label
-                                >
-
-                                <div
-                                    class="input-field col s6 margined-top-comfortable"
-                                >
-                                    <label>
-                                        <input name="1-3%/month" type="radio" />
-                                        <span>1-3%/month</span>
-                                    </label>
-                                </div>
-                                <div
-                                    class="input-field col s6 margined-top-comfortable"
-                                >
-                                    <label>
-                                        <input name="4-7%/month" type="radio" />
-                                        <span>4-7%/month</span>
-                                    </label>
-                                </div>
-                                <div
-                                    class="input-field col s6 margined-top-comfortable"
-                                >
-                                    <label>
-                                        <input
-                                            name="10-12%month"
-                                            type="radio"
-                                        />
-                                        <span>10-12%month</span>
-                                    </label>
-                                </div>
-                                <div
-                                    class="input-field col s6 margined-top-comfortable"
-                                >
-                                    <label>
-                                        <input
-                                            name="CI make losses month on month basis."
-                                            type="radio"
-                                        />
-                                        <span
-                                            >I make losses month on month
-                                            basis.</span
-                                        >
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="input-field col s12 margined-top-comfortable"
-                        >
-                            <i class="material-icons prefix">edit</i>
-                            <label
-                                >Do you use any Professional help to Trade or
-                                Invest in Market ?</label
-                            >
-
-                            <div
-                                class="input-field col s6 margined-top-comfortable"
-                            >
-                                <label>
-                                    <input name="Yes" type="radio" />
-                                    <span>Yes</span>
-                                </label>
-                            </div>
-                            <div
-                                class="input-field col s6 margined-top-comfortable"
-                            >
-                                <label>
-                                    <input name="No" type="radio" />
-                                    <span>No</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div
-                            class="col s12 stoq-combo-text margined-top-comfortable"
-                        >
-                            Name your Professional Advisor
-                            <div
-                                class="input-field inline margined-left-comfortable"
-                                style="width: 10cm;"
-                            >
-                                <input
-                                    id="Advisor"
-                                    type="text"
-                                    class="validate"
-                                />
-                                <label for="Advisor">Advisor Name</label>
-                            </div>
-                        </div>
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">edit</i>
-                            <label
-                                >How many years experience do you have in market
-                                ?</label
-                            >
-
-                            <div
-                                class="input-field col s3 m6 margined-top-comfortable"
-                            >
-                                <label>
-                                    <input name="New to market" type="radio" />
-                                    <span>New to market</span>
-                                </label>
-                            </div>
-                            <div
-                                class="input-field col s3 m6 margined-top-comfortable"
-                            >
-                                <label>
-                                    <input name="2-3 yrs" type="radio" />
-                                    <span>2-3 yrs</span>
-                                </label>
-                            </div>
-                            <div
-                                class="input-field col s3 m6 margined-top-comfortable"
-                            >
-                                <label>
-                                    <input name="5-10yrs" type="radio" />
-                                    <span>5-10yrs</span>
-                                </label>
-                            </div>
-                            <div
-                                class="input-field col s3 m6 margined-top-comfortable"
-                            >
-                                <label>
-                                    <input name="I am a Veteran" type="radio" />
-                                    <span>I am a Veteran</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div
-                            class="col s12 stoq-combo-text margined-top-comfortable"
-                        >
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    class="filled-in"
-                                    checked="checked"
-                                />
-                                <span
-                                    >I agree to terms and conditions and privacy
-                                    policy.</span
-                                >
-                            </label>
-                        </div>
-                        <div
-                            class="col s12 stoq-combo-text margined-top-comfortable"
-                        >
-                            <label>
-                                <input
-                                    type="checkbox"
-                                    class="filled-in"
-                                    checked="checked"
-                                />
-                                <span
-                                    >I give my consent to Stoq Team to contact
-                                    me in future.</span
-                                >
-                            </label>
-                        </div>
-
-                        <div class="btn" @click="submitForm">Submit</div>
-                    </form>
-                </div>
-            </section>
-        </div>
-
-    -->
 
     <footer class="page-footer stoq-footer min-screen-height">
       <div class="container">
@@ -600,16 +579,6 @@
                     Privacy Policy
                   </a>
                 </li>
-                <!-- <li class="margined-bottom-compact">
-                                    <a class="white-text-lighten-3" href="#!">
-                                        Disclosure Policy
-                                    </a>
-                                </li>
-                                <li class="margined-bottom-compact">
-                                    <a class="white-text-lighten-3" href="#!">
-                                        Complaints</a
-                                    >
-                                </li> -->
               </ul>
             </div>
             <div class="col m4 s3">
@@ -691,9 +660,26 @@
             email: null,
             hasDemat: null,
             broker: null,
+            type: null,
+            trading: {
+              style: null,
+              earning: null,
+              market: null,
+            },
+            investment: {
+              style: null,
+              return: null,
+            },
+            getsHelp: null,
+            advisor: null,
+            experience: null,
           },
 
           showStep: 0,
+          agreement: {
+            terms: false,
+            contact: false,
+          },
         },
         methods: {
           submitForm() {
