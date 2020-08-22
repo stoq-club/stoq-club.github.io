@@ -1,89 +1,142 @@
-
-
-
-
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-        <link rel="icon" href="images/stoq_logo_bg_fill.png" />
-        <title>Early Access | STOQ Club</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="images/stoq_logo_bg_fill.png" />
+    <title>Early Access | STOQ Club</title>
 
-        <!-- Compiled and minified CSS -->
-        <link rel="stylesheet" href="css/materialize.min.css" />
-        <link rel="stylesheet" href="css/layout.css" />
-        <link rel="stylesheet" href="css/style.css" />
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="css/materialize.min.css" />
+    <link rel="stylesheet" href="css/layout.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
-        <!--Import Google Icon Font-->
-        <link href="css/MaterialIcons.css" rel="stylesheet" />
-        <script type="text/javascript" src="js/materialize.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <!--Import Google Icon Font-->
+    <link href="css/MaterialIcons.css" rel="stylesheet" />
 
-        <style>
-            input {
-                color: white !important;
-            }
+    <link
+      href="https://cdn.jsdelivr.net/npm/animate.css@3.5.1"
+      rel="stylesheet"
+      type="text/css"
+    />
 
-            input:focus {
-                border-bottom-color: #ffd8a8 !important;
-            }
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 
-            label.active {
-                color: #ffd8a8 !important;
-            }
-        </style>
-    </head>
+    <style>
+      input {
+        color: white !important;
+      }
 
-    <body>
-        <div>
-            <img
-                class="responsive-img padded-top-comfortable padded-left-comfortable"
-                src="images/stoq logo.png"
-                width="220px"
-                height="auto"
-            />
-        </div>
-        <section class="about1 section">
-            <div class="row">
-                <div
-                    class="col s12 margined-top-comfortable padded-left-comfortable"
-                >
-                    <div class="white-text">
-                        <h3 class="strong">
-                            Sign up for<span class="stoq-combo-text">
-                                Early Access
-                            </span>
-                        </h3>
-                    </div>
-                </div>
+      input:focus {
+        border-bottom-color: #ffd8a8 !important;
+      }
+
+      label.active {
+        color: #ffd8a8 !important;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <img
+        class="responsive-img padded-top-comfortable padded-left-comfortable"
+        src="images/stoq logo.png"
+        width="220px"
+        height="auto"
+      />
+
+      <section class="page1 section min-screen-height">
+        <div class="padded-left-comfortable padded-right-comfortable">
+          <div class="row">
+            <div class="col s12 margined-top-comfortable">
+              <div class="white-text">
+                <h3 class="strong">
+                  Sign up for<span class="stoq-combo-text">
+                    Early Access
+                  </span>
+                </h3>
+              </div>
             </div>
-        </section>
-        <div id="app">
-            <section class="page1 section min-screen-height valign-wrapper">
-                <div class="row white-text">
-                    <form id="form" class="col s12">
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix">account_circle</i>
-                            <input
-                                id="First Name"
-                                type="text"
-                                name="FirstName"
-                                class="validate"
-                                v-model="user.firstname"
-                            />
-                            <label for="First Name">First Name</label>
-                        </div>
-                        <div class="input-field col s6">
-                            <input
-                                id="Last Name"
-                                type="text"
-                                name="LastName"
-                                class="validate"
-                                v-model="user.lastname"
-                            />
-                            <label for="Last Name">Last Name</label>
-                        </div>
+          </div>
+        </div>
+        <div id="app" class="padded-left-comfortable padded-right-comfortable">
+          <transition
+            enter-active-class="animated fadeInUp"
+            leave-active-class="animated fadeOutUp"
+          >
+            <div class="row white-text" v-show="showStep == 0">
+              <p class="col s12">
+                Let's start by getting to know each other.
+              </p>
+
+              <div class="input-field col s6 m3">
+                <input
+                  id="First Name"
+                  type="text"
+                  name="FirstName"
+                  class="validate"
+                  v-model="user.firstname"
+                />
+                <label for="First Name">First Name</label>
+              </div>
+              <div class="input-field col s6 m3">
+                <input
+                  id="Last Name"
+                  type="text"
+                  name="LastName"
+                  class="validate"
+                  v-model="user.lastname"
+                />
+                <label for="Last Name">Last Name</label>
+              </div>
+              <div class="col s12">
+                <div
+                  class="btn stoq-combo stoq-black-text"
+                  @click="showStep = 1"
+                >
+                  Continue
+                </div>
+              </div>
+            </div>
+          </transition>
+
+          <transition
+            enter-active-class="animated fadeInUp"
+            leave-active-class="animated fadeOutUp"
+          >
+            <div class="row white-text" v-show="showStep == 1">
+              <div class="input-field col s6 m3">
+                <input
+                  id="user_phone"
+                  type="text"
+                  name="phone"
+                  class="validate"
+                  v-model="user.phone"
+                />
+                <label for="user_phone">Phone</label>
+              </div>
+              <div class="col s12">
+                <div
+                  class="btn stoq-combo stoq-black-text"
+                  @click="showStep = 2"
+                >
+                  Continue
+                </div>
+                <div class="btn btn-flat white-text" @click="showStep = 0">
+                  Back
+                </div>
+              </div>
+            </div>
+          </transition>
+        </div>
+      </section>
+    </div>
+
+    <!--
+                      
+                      
                         <div class="input-field col s6">
                             <i class="material-icons prefix">phone</i>
                             <input
@@ -487,38 +540,40 @@
             </section>
         </div>
 
-        <footer class="page-footer stoq-footer min-screen-height">
-            <div class="container">
-                <div class="row">
-                    <div class="col s3 margined-top-comfortable">
-                        <img
-                            class="responsive-img margined-top-comfortable margined-bottom-comfortable"
-                            src="images/stoq logo.png"
-                            width="300px"
-                            height="auto"
-                        />
-                    </div>
+    -->
 
-                    <div class="col s9 margined-left-comfortable">
-                        <div class="col m4 s3">
-                            <p
-                                class="white-text margined-top-comfortable margined-bottom-compact margined-right-compact"
-                            >
-                                Legal
-                            </p>
-                            <ul>
-                                <li class="margined-bottom-compact">
-                                    <a class="white-text-lighten-3" href="#!"
-                                        >Terms & Condition
-                                    </a>
-                                </li>
+    <footer class="page-footer stoq-footer min-screen-height">
+      <div class="container">
+        <div class="row">
+          <div class="col s3 margined-top-comfortable">
+            <img
+              class="responsive-img margined-top-comfortable margined-bottom-comfortable"
+              src="images/stoq logo.png"
+              width="300px"
+              height="auto"
+            />
+          </div>
 
-                                <li class="margined-bottom-compact">
-                                    <a class="white-text-lighten-3" href="#!">
-                                        Privacy Policy
-                                    </a>
-                                </li>
-                                <!-- <li class="margined-bottom-compact">
+          <div class="col s9 margined-left-comfortable">
+            <div class="col m4 s3">
+              <p
+                class="white-text margined-top-comfortable margined-bottom-compact margined-right-compact"
+              >
+                Legal
+              </p>
+              <ul>
+                <li class="margined-bottom-compact">
+                  <a class="white-text-lighten-3" href="#!"
+                    >Terms & Condition
+                  </a>
+                </li>
+
+                <li class="margined-bottom-compact">
+                  <a class="white-text-lighten-3" href="#!">
+                    Privacy Policy
+                  </a>
+                </li>
+                <!-- <li class="margined-bottom-compact">
                                     <a class="white-text-lighten-3" href="#!">
                                         Disclosure Policy
                                     </a>
@@ -528,119 +583,97 @@
                                         Complaints</a
                                     >
                                 </li> -->
-                            </ul>
-                        </div>
-                        <div class="col m4 s3">
-                            <p
-                                class="white-text margined-top-comfortable margined-bottom-compact margined-right-compact"
-                            >
-                                Company
-                            </p>
-                            <ul>
-                                <li class="margined-bottom-compact">
-                                    <a
-                                        class="white-text-lighten-3"
-                                        href="/about.html"
-                                        >About</a
-                                    >
-                                </li>
-                                <li class="margined-bottom-compact">
-                                    <a class="white-text-lighten-3" href="#!"
-                                        >Careers</a
-                                    >
-                                </li>
-                                <li class="margined-bottom-compact">
-                                    <a class="white-text-lighten-3" href="#!"
-                                        >Content</a
-                                    >
-                                </li>
-                                <li class="margined-bottom-compact">
-                                    <a class="white-text-lighten-3" href="#!"
-                                        >Blog</a
-                                    >
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="col m4 s3">
-                            <p
-                                class="white-text margined-top-comfortable margined-bottom-compact margined-right-compact"
-                            >
-                                Follow
-                            </p>
-                            <ul>
-                                <li class="margined-bottom-compact">
-                                    <a class="white-text-lighten-3" href="#!"
-                                        >Facebook</a
-                                    >
-                                </li>
-                                <li class="margined-bottom-compact">
-                                    <a class="white-text-lighten-3" href="#!"
-                                        >Instagram</a
-                                    >
-                                </li>
-                                <li class="margined-bottom-compact">
-                                    <a class="white-text-lighten-3" href="#!"
-                                        >Twitter</a
-                                    >
-                                </li>
-                                <li class="margined-bottom-compact">
-                                    <a class="white-text-lighten-3" href="#!"
-                                        >LinkedIn</a
-                                    >
-                                </li>
-                                <li class="margined-bottom-compact">
-                                    <a class="white-text-lighten-3" href="#!"
-                                        >Dribble</a
-                                    >
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div
-                    class="footer-copywrite white-text padded-left-comfortable padded-top-comfortable padded-bottom-compact"
-                >
-                    <div class="col s2">
-                        <img
-                            class="small-circle responsive-img"
-                            src="images/flag.png"
-                        />
-                        India
-                    </div>
-                </div>
-
-                <div
-                    class="footer-copywrite padded-left-comfortable padded-top-comfortable padded-bottom-compact"
-                    style="padding-top: 2em;"
-                >
-                    <div class="col m4 s4 stoq-combo-text">
-                        Copyright 2020 STOQ.club.
-                    </div>
-                </div>
+              </ul>
             </div>
-        </footer>
+            <div class="col m4 s3">
+              <p
+                class="white-text margined-top-comfortable margined-bottom-compact margined-right-compact"
+              >
+                Company
+              </p>
+              <ul>
+                <li class="margined-bottom-compact">
+                  <a class="white-text-lighten-3" href="/about.html">About</a>
+                </li>
+                <li class="margined-bottom-compact">
+                  <a class="white-text-lighten-3" href="#!">Careers</a>
+                </li>
+                <li class="margined-bottom-compact">
+                  <a class="white-text-lighten-3" href="#!">Content</a>
+                </li>
+                <li class="margined-bottom-compact">
+                  <a class="white-text-lighten-3" href="#!">Blog</a>
+                </li>
+              </ul>
+            </div>
+            <div class="col m4 s3">
+              <p
+                class="white-text margined-top-comfortable margined-bottom-compact margined-right-compact"
+              >
+                Follow
+              </p>
+              <ul>
+                <li class="margined-bottom-compact">
+                  <a class="white-text-lighten-3" href="#!">Facebook</a>
+                </li>
+                <li class="margined-bottom-compact">
+                  <a class="white-text-lighten-3" href="#!">Instagram</a>
+                </li>
+                <li class="margined-bottom-compact">
+                  <a class="white-text-lighten-3" href="#!">Twitter</a>
+                </li>
+                <li class="margined-bottom-compact">
+                  <a class="white-text-lighten-3" href="#!">LinkedIn</a>
+                </li>
+                <li class="margined-bottom-compact">
+                  <a class="white-text-lighten-3" href="#!">Dribble</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
 
-        <script>
-            const app = new Vue({
-                el: '#app',
-                data: {
-                    user: {
-                        firstname: null,
-                        lastname: null,
-                        phone: null,
-                        email: null,
-                        hasDemat: null,
-                        broker: null,
-                    },
-                },
-                methods: {
-                    submitForm() {
-                        console.log({ ...this.user })
-                    },
-                },
-            })
-        </script>
-        
-    </body>
+        <div
+          class="footer-copywrite white-text padded-left-comfortable padded-top-comfortable padded-bottom-compact"
+        >
+          <div class="col s2">
+            <img class="small-circle responsive-img" src="images/flag.png" />
+            India
+          </div>
+        </div>
+
+        <div
+          class="footer-copywrite padded-left-comfortable padded-top-comfortable padded-bottom-compact"
+          style="padding-top: 2em;"
+        >
+          <div class="col m4 s4 stoq-combo-text">
+            Copyright 2020 STOQ.club.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const app = new Vue({
+        el: '#app',
+        data: {
+          user: {
+            firstname: null,
+            lastname: null,
+            phone: null,
+            email: null,
+            hasDemat: null,
+            broker: null,
+          },
+
+          showStep: 0,
+        },
+        methods: {
+          submitForm() {
+            console.log({ ...this.user })
+          },
+        },
+      })
+    </script>
+  </body>
 </html>
