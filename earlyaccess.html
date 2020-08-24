@@ -49,6 +49,27 @@
       label.active {
         color: #ffd8a8 !important;
       }
+
+      #waitoverlay {
+        position: fixed;
+        /* Sit on top of the page content */
+        display: none;
+        /* Hidden by default */
+        width: 100%;
+        /* Full width (cover the whole page) */
+        height: 100%;
+        /* Full height (cover the whole page) */
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        /* White background with opacity */
+        z-index: 1000;
+        /* Specify a stack order in case you're using a different order for other elements */
+        cursor: pointer;
+        /* Add a pointer on hover */
+      }
     </style>
   </head>
 
@@ -816,6 +837,60 @@
         </div>
       </div>
     </footer>
+
+    <div id="waitoverlay">
+      <div class="full-height valign-wrapper">
+        <div class="full-width center">
+          <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+            <div class="spinner-layer spinner-red">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+            <div class="spinner-layer spinner-yellow">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+            <div class="spinner-layer spinner-green">
+              <div class="circle-clipper left">
+                <div class="circle"></div>
+              </div>
+              <div class="gap-patch">
+                <div class="circle"></div>
+              </div>
+              <div class="circle-clipper right">
+                <div class="circle"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script>
       const app = new Vue({
         el: '#app',
@@ -856,6 +931,7 @@
           },
 
           showStep: 0,
+          showOverlay: false,
           agreement: {
             terms: false,
             contact: false,
@@ -866,8 +942,8 @@
         },
         methods: {
           submitForm() {
-            console.log({ ...this.user })
-
+            // console.log({ ...this.user })
+            document.getElementById('waitoverlay').style.display = 'block'
             fetch('https://stoq-api.herokuapp.com/api/earlyaccess', {
               method: 'POST',
               mode: 'cors',
