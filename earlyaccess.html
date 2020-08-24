@@ -280,19 +280,32 @@
               </p>
               <div class="col s12">
                 <div
-                  class="btn margined-bottom-compact truncate stoq-combo stoq-black-text"
-                  @click="user.type = 'trader'; showStep = 6"
+                  :class="'btn margined-bottom-compact truncate ' + (user.type.trader ? 'stoq-combo stoq-black-text' : 'btn-flat white-text')"
+                  @click="user.type.trader = !user.type.trader"
                 >
+                  <i v-if="user.type.trader" class="material-icons left">
+                    check
+                  </i>
                   Trader
                 </div>
 
                 <div
-                  class="btn margined-bottom-compact truncate stoq-combo stoq-black-text"
-                  @click="user.type = 'investor'; showStep = 9"
+                  :class="'btn margined-bottom-compact truncate ' + (user.type.investor ? 'stoq-combo stoq-black-text' : 'btn-flat white-text')"
+                  @click="user.type.investor = !user.type.investor"
                 >
+                  <i v-if="user.type.investor" class="material-icons left">
+                    check
+                  </i>
                   Investor
                 </div>
-
+              </div>
+              <div class="col s12">
+                <div
+                  class="btn margined-bottom-compact truncate stoq-combo stoq-black-text"
+                  @click="showStep = user.type.trader ? 6 : 9"
+                >
+                  Continue
+                </div>
                 <div
                   class="btn margined-bottom-compact btn-flat white-text"
                   @click="showStep = 3"
@@ -456,7 +469,7 @@
               <div class="col s12">
                 <div
                   class="btn margined-bottom-compact truncate stoq-combo stoq-black-text"
-                  @click="showStep = 11"
+                  @click="showStep = user.type.investor ? 9 : 11"
                 >
                   Continue
                 </div>
@@ -815,7 +828,10 @@
             city: null,
             hasDemat: null,
             broker: null,
-            type: null,
+            type: {
+              trader: false,
+              investor: false,
+            },
             trading: {
               style: {
                 swing: false,
