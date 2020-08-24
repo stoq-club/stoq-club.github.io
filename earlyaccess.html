@@ -170,7 +170,7 @@
               <div class="col s12">
                 <div
                   class="btn margined-bottom-compact stoq-combo stoq-black-text"
-                  @click="showStep = 3"
+                  @click="showStep = 2.5"
                   :disabled="!user.email"
                 >
                   Continue
@@ -178,6 +178,37 @@
                 <div
                   class="btn margined-bottom-compact btn-flat white-text"
                   @click="showStep = 1"
+                >
+                  Back
+                </div>
+              </div>
+            </div>
+
+            <div class="row white-text" v-if="showStep == 2.5" key="step2_5">
+              <p class="col s12 margined-bottom-comfortable">
+                Please tell us where you live.
+              </p>
+              <div class="input-field col s12 m6">
+                <input
+                  id="user_city"
+                  type="text"
+                  name="city"
+                  class="validate"
+                  v-model="user.city"
+                />
+                <label for="user_city">City</label>
+              </div>
+              <div class="col s12">
+                <div
+                  class="btn margined-bottom-compact stoq-combo stoq-black-text"
+                  @click="showStep = 3"
+                  :disabled="!user.city"
+                >
+                  Continue
+                </div>
+                <div
+                  class="btn margined-bottom-compact btn-flat white-text"
+                  @click="showStep = 2"
                 >
                   Back
                 </div>
@@ -205,7 +236,7 @@
 
                 <div
                   class="btn margined-bottom-compact btn-flat white-text"
-                  @click="showStep = 2"
+                  @click="showStep = 2.5"
                 >
                   Back
                 </div>
@@ -781,6 +812,7 @@
             lastname: null,
             phone: null,
             email: null,
+            city: null,
             hasDemat: null,
             broker: null,
             type: null,
