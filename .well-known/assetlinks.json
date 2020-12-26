@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "club.stoq.app",
+      "sha256_cert_fingerprints": [
+        "66:8A:8C:5F:C7:F3:E5:82:19:00:F1:EE:CC:A1:18:9B:15:6B:06:02:1D:DE:CB:AB:B0:89:D9:D8:5F:66:0D:FD"
+      ]
+    }
+  }
+]
